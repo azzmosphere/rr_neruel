@@ -8,8 +8,7 @@
 #include "OutputLayer.hpp"
 #include "TrainingSet.hpp"
 
-//#define NN_SUCCESS 0.0004
-#define NN_SUCCESS 0.01
+#define NN_SUCCESS 0.0004
 
 
 class Network {
