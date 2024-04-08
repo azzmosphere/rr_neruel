@@ -44,12 +44,13 @@ void setup() {
     // 8 - Nodes in each hidden layer
     // 4 - Output nodes.
     *****************************************/
-    const size_t hl = 1;
+    const size_t hl = 2;
     const size_t in = 7;
     const size_t ln = 8;
     const size_t on = 4;
+    const size_t nid = 0;
 
-    network.initalize(0, hl, in, ln, on);
+    network.initalize(nid, hl, in, ln, on);
     
     // start deserializing data
     tset.deserialize(tdata);

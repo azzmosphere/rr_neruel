@@ -9,7 +9,7 @@
 #include "TrainingSet.hpp"
 
 #define NN_SUCCESS 0.0004
-
+#define NN_MAX_LAYERS 2
 
 class Network {
     public:
@@ -30,7 +30,7 @@ class Network {
         size_t _nid;
 
     protected:
-       Layer _hidden;
+       Layer _hidden[NN_MAX_LAYERS];
        OutputLayer _output; 
 };
 

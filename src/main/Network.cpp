@@ -15,7 +15,11 @@ void Network::initalize(
     _nid = nid;
 
     Logger::info("initialize hidden layers");
-    _hidden.initialize(nhnodes, ninodes);
+    for (size_t i = 0; i < _nhidden; i++)
+    {
+        Logger::info("initalizing hidden layer " + i);
+        _hidden[i].initialize(nhnodes, ninodes);
+    }
 
     Logger::info("inialize output layer");
     _output.initialize(nonodes, nhnodes);
@@ -40,31 +44,35 @@ void Network::train(TrainingSet tset)
             }
 
             float target[_nonodes];
-             for (size_t i = 0; i < _nonodes; i++)
+            for (size_t i = 0; i < _nonodes; i++)
             {
                 target[i] = tset._target.at(p).at(i);
-            }           
+            }
 
-            // TODO activate each hidden layer
-             _hidden.layer_activation(ingress, _ninodes);
-             error = _output.output_activation(ingress, target, _nhnodes, error);
+            Layer egress = _output;
+            for (size_t i = _nhidden; i > 0; i--)
+            {
+                _hidden[i].layer_activation(ingress, _ninodes);
+                error = _output.output_activation(ingress, target, _nhnodes, error);
+                _hidden[i].backpropagate(egress);
+                egress = _hidden[i];
+            }
 
-             // Backpropagate errors to hidden layer (start loop here)
-             // TODO: Do this regressively for each hidden layer (and may be output layer)
-             _hidden.backpropagate(_output);
-             // end loop here
-
-
-             // Update Inner-->Hidden Weights
-            _hidden.update_inner(ingress, _ninodes);
-            _output.update_inner(_hidden._nodes, _hidden._size);
+            // Update Inner-->Hidden Weights
+            for (size_t i = 0; i < _nhidden; i++)
+            {
+                _hidden[i].update_inner(ingress, _ninodes);
+            }
+            _output.update_inner(_hidden[_nhidden - 1]._nodes, _nhnodes);
         }
 
-        if (error < NN_SUCCESS) {
+        if (error < NN_SUCCESS)
+        {
             Logger::info("successfully trained");
             break;
         }
 
-        printf("INFO: trainingCycle: %ld   error = %9.6f success = %9.6f \n", trainingCycle, error, NN_SUCCESS);;
+        printf("INFO: trainingCycle: %ld   error = %9.6f success = %9.6f \n", trainingCycle, error, NN_SUCCESS);
+        ;
     }
 }
