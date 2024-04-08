@@ -53,4 +53,7 @@ void setup() {
     
     // start deserializing data
     tset.deserialize(tdata);
+
+    // train network.
+    network.train(tset);
 }

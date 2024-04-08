@@ -4,6 +4,8 @@
 
 #include <stdlib.h>
 #include "Logger.hpp"
+#include "Layer.hpp"
+#include "TrainingSet.hpp"
 
 class Network {
     public:
@@ -14,6 +16,8 @@ class Network {
             const size_t nhnodes, 
             const size_t nonodes);
 
+        void train(TrainingSet);
+
     private:
         size_t _nhidden;
         size_t _ninodes;
@@ -22,7 +26,8 @@ class Network {
         size_t _nid;
 
     protected:
-        
+       Layer _hidden;
+       Layer _output; 
 };
 
 #endif
