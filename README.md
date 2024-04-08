@@ -34,7 +34,7 @@ cmake --build build -t test
 
 Array Of Objects, each of the objects has the following:
 
-|| Attribite || Type            || Description          ||
+|  Attribite  | Type             | Description           |
 |  --------   | ---------------  | ----------            |
 | ingress     | array of floats  | array of input nodes  |
 | target      | arrya of floats  | expected output.      |
