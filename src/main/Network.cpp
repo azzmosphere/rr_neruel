@@ -25,7 +25,7 @@ void Network::initalize(
 
 void Network::train(TrainingSet tset)
 {
-    for (size_t trainingCycle = 1; trainingCycle < 3; trainingCycle++)
+    for (size_t trainingCycle = 1; trainingCycle < 5000; trainingCycle++)
     {
         float error = 0.0;
 
@@ -57,8 +57,14 @@ void Network::train(TrainingSet tset)
 
              // Update Inner-->Hidden Weights
             _hidden.update_inner(ingress, _ninodes);
-
-
+            _output.update_inner(_hidden._nodes, _hidden._size);
         }
+
+        if (error < NN_SUCCESS) {
+            Logger::info("successfully trained");
+            break;
+        }
+
+        printf("INFO: trainingCycle: %ld   error = %9.6f success = %9.6f \n", trainingCycle, error, NN_SUCCESS);;
     }
 }
