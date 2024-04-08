@@ -1,7 +1,8 @@
 #include "main.hpp"
 
-string tdata;
 Network network;
+TrainingSet tset;
+string tdata;
 
 void process_args(int argc, char** argv);
 void setup();
@@ -49,4 +50,7 @@ void setup() {
     const size_t on = 4;
 
     network.initalize(0, hl, in, ln, on);
+    
+    // start deserializing data
+    tset.deserialize(tdata);
 }

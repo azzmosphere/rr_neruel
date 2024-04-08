@@ -4,5 +4,6 @@
 #include <stdlib.h>
 #include "Network.hpp"
 #include <getopt.h>
+#include "TrainingSet.hpp"
 
 #endif

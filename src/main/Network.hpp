@@ -15,11 +15,14 @@ class Network {
             const size_t nonodes);
 
     private:
-            size_t _nhidden;
-            size_t _ninodes;
-            size_t _nhnodes; 
-            size_t _nonodes;  
-            size_t _nid;   
+        size_t _nhidden;
+        size_t _ninodes;
+        size_t _nhnodes; 
+        size_t _nonodes;  
+        size_t _nid;
+
+    protected:
+        
 };
 
 #endif
