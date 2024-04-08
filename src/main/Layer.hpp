@@ -7,6 +7,8 @@
 #define NODE_ARY_SZ 8
 
 #define NN_INITIAL_WEIGHT 0.5
+#define NN_LEARNING_RATE 0.3
+#define NN_MOMENTUM  0.9
 
 
 class Layer {
@@ -31,6 +33,13 @@ class Layer {
         size_t _size = 0;
 
         void layer_activation(float ingress[], size_t isize);
+
+        /******************************************************************
+        * Backpropagate errors to hidden layer
+        ******************************************************************/
+        void backpropagate(Layer egress);
+
+        void update_inner(float ingress[], size_t isize);
 };
 
 #endif

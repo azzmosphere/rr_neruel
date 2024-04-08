@@ -49,8 +49,16 @@ void Network::train(TrainingSet tset)
              _hidden.layer_activation(ingress, _ninodes);
              error = _output.output_activation(ingress, target, _nhnodes, error);
 
-             // Backpropagate errors to hidden layer
+             // Backpropagate errors to hidden layer (start loop here)
              // TODO: Do this regressively for each hidden layer (and may be output layer)
+             _hidden.backpropagate(_output);
+             // end loop here
+
+
+             // Update Inner-->Hidden Weights
+            _hidden.update_inner(ingress, _ninodes);
+
+
         }
     }
 }

@@ -33,3 +33,39 @@ void Layer::layer_activation(float ingress[], size_t isize)
         _nodes[i] = 1.0 / (1.0 + exp(-accum));
     }
 }
+
+/******************************************************************
+ * Backpropagate errors to hidden layer
+ ******************************************************************/
+void Layer::backpropagate(Layer egress)
+{
+    Logger::info("Backpropagate errors to hidden layer");
+
+    for (size_t i = 0; i < _size; i++)
+    {
+        float accum = 0.0;
+        for (size_t j = 0; j < egress._size; j++)
+        {
+            accum += egress._weights[i][j] * egress._delta[j];
+        }
+        _delta[i] = accum * _nodes[i] * (1.0 - _nodes[i]);
+    }
+}
+
+/******************************************************************
+ * Update Inner-->Hidden Weights
+ ******************************************************************/
+void Layer::update_inner(float ingress[], size_t isize)
+{
+    Logger::info("Update Inner-->Hidden Weights");
+    for (size_t i = 0; i < _size; i++)
+    {
+        _change_weights[isize][i] = NN_LEARNING_RATE * _delta[i] + NN_MOMENTUM * _change_weights[isize][i];
+        _weights[isize][i] += _change_weights[isize][i];
+        for (size_t j = 0; j < isize; j++)
+        {
+            _change_weights[j][i] = NN_LEARNING_RATE * ingress[j] * _delta[i] + NN_MOMENTUM * _change_weights[j][i];
+            _weights[j][i] += _change_weights[j][i];
+        }
+    }
+}
