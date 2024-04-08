@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "Logger.hpp"
 #include "Layer.hpp"
+#include "OutputLayer.hpp"
 #include "TrainingSet.hpp"
 
 class Network {
@@ -27,7 +28,7 @@ class Network {
 
     protected:
        Layer _hidden;
-       Layer _output; 
+       OutputLayer _output; 
 };
 
 #endif

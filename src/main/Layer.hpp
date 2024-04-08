@@ -2,6 +2,7 @@
 #define LAYER_HPP
 
 #include "Logger.hpp"
+#include <math.h>
 
 #define NODE_ARY_SZ 8
 
@@ -28,6 +29,8 @@ class Layer {
         float _delta[NODE_ARY_SZ];
 
         size_t _size = 0;
+
+        void layer_activation(float ingress[], size_t isize);
 };
 
 #endif

@@ -38,6 +38,19 @@ void Network::train(TrainingSet tset)
             {
                 ingress[i] = tset._ingress.at(p).at(i);
             }
+
+            float target[_nonodes];
+             for (size_t i = 0; i < _nonodes; i++)
+            {
+                target[i] = tset._target.at(p).at(i);
+            }           
+
+            // TODO activate each hidden layer
+             _hidden.layer_activation(ingress, _ninodes);
+             error = _output.output_activation(ingress, target, _nhnodes, error);
+
+             // Backpropagate errors to hidden layer
+             // TODO: Do this regressively for each hidden layer (and may be output layer)
         }
     }
 }
