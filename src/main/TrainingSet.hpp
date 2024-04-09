@@ -5,8 +5,9 @@
 #include "nlohmann/json.hpp"
 #include "Logger.hpp"
 #include <fstream>
+#include "FileReader.hpp"
 
-class TrainingSet {
+class TrainingSet : FileReader {
 
     private:
         

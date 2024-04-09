@@ -3,6 +3,7 @@
 Network network;
 TrainingSet tset;
 string tdata;
+string config_file;
 
 void process_args(int argc, char** argv);
 void setup();
@@ -15,9 +16,10 @@ int main(int argc, char** argv) {
 
 
 void process_args(int argc, char** argv) {
-    const char* const short_opts = "t:";
+    const char* const short_opts = "t:c:";
     const option long_opts[] = {
-        {"tdata", required_argument, nullptr, 't'}
+        {"tdata", required_argument, nullptr, 't'},
+        {"config", optional_argument, nullptr, 'c'}
     };
 
      while (true)
@@ -29,9 +31,17 @@ void process_args(int argc, char** argv) {
 
         switch (opt) 
         {
+            // training set.
             case 't':
                 tdata = string(optarg);
                 Logger::info("trainging set: " + tdata);
+                break;
+            // config file
+            case 'c':
+                config_file = string(optarg);
+                Logger::info("config set: " + config_file);
+                break;
+
         }
      }
 }
@@ -49,6 +59,9 @@ void setup() {
     const size_t ln = 8;
     const size_t on = 4;
     const size_t nid = 0;
+
+    ConfigReader config_reader;
+    config_reader.load_file(config_file);
 
     network.initalize(nid, hl, in, ln, on);
     

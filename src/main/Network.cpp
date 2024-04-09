@@ -17,7 +17,7 @@ void Network::initalize(
     Logger::info("initialize hidden layers");
     for (size_t i = 0; i < _nhidden; i++)
     {
-        Logger::info("initalizing hidden layer " + i);
+        Logger::info("initalizing hidden layer " + to_string(i));
         _hidden[i].initialize(nhnodes, ninodes);
     }
 

@@ -5,5 +5,6 @@
 #include "Network.hpp"
 #include <getopt.h>
 #include "TrainingSet.hpp"
+#include "ConfigReader.hpp"
 
 #endif

@@ -10,7 +10,8 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/rr-neruel",
             "args": [
-                "-t ${workspaceFolder}/resources/training/training-set.0.json"
+                "-t ${workspaceFolder}/resources/training/training-set.0.json",
+                "-c ${workspaceFolder}/resources/etc/config.yaml"
             ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
