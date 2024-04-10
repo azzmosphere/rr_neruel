@@ -20,5 +20,5 @@ float OutputLayer::output_activation(float ingress[], float target[], size_t isi
         _delta[i] = (target[i] - _nodes[i]) * _nodes[i] * (1.0 - _nodes[i]);
         e += 0.5 * (target[i] - _nodes[i]) * (target[i] - _nodes[i]);
     }
-    return error;
+    return e;
 }

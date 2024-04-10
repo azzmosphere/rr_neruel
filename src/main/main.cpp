@@ -11,6 +11,19 @@ void setup();
 int main(int argc, char** argv) {
     process_args(argc, argv);
     setup();
+
+    // start procesing data.
+    Logger::info("Begin processing data.");
+
+    // TODO: dev code to test
+    const float ingress[] = {0, 1, 1, 0, 0, 0, 0};
+    
+    Layer output = network.predict(ingress, sizeof(ingress) / sizeof(float));
+
+    for (size_t i = 0; i < 4; i++) {
+        Logger::info("col: " + to_string(i) + " value:" + to_string(output._nodes[i]) );
+    }
+
     return EXIT_SUCCESS;
 }
 
@@ -18,8 +31,8 @@ int main(int argc, char** argv) {
 void process_args(int argc, char** argv) {
     const char* const short_opts = "t:c:";
     const option long_opts[] = {
-        {"tdata", required_argument, nullptr, 't'},
-        {"config", optional_argument, nullptr, 'c'}
+        {"config", required_argument, nullptr, 'c'},
+        {"tdir",   optional_argument, nullptr, 't'}
     };
 
      while (true)
@@ -31,16 +44,18 @@ void process_args(int argc, char** argv) {
 
         switch (opt) 
         {
-            // training set.
-            case 't':
-                tdata = string(optarg);
-                Logger::info("trainging set: " + tdata);
-                break;
             // config file
             case 'c':
                 config_file = string(optarg);
                 Logger::info("config set: " + config_file);
                 break;
+
+            // training set.
+            case 't':
+                tdata = string(optarg);
+                Logger::info("trainging set: " + tdata);
+                break;
+
 
         }
      }

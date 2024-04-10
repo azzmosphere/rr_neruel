@@ -33,7 +33,7 @@ void ConfigReader::load_file(string config_file) {
         _input_nodes  = retrieve_node("input", node)["nodes"].as<float>();
         _output_nodes = retrieve_node("output", node)["nodes"].as<float>();
 
-        _hidden_layers = retrieve_node("hidden", node)["nodes"].as<float>();
+        _hidden_nodes  = retrieve_node("hidden", node)["nodes"].as<float>();
         _hidden_layers = retrieve_node("hidden", node)["layers"].as<float>();
     }
 }

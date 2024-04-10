@@ -8,8 +8,10 @@
 #include "OutputLayer.hpp"
 #include "TrainingSet.hpp"
 
+
+
 #define NN_SUCCESS 0.0004
-#define NN_MAX_LAYERS 2
+#define NN_MAX_LAYERS 20
 
 class Network {
     public:
@@ -21,6 +23,11 @@ class Network {
             const size_t nonodes);
 
         void train(TrainingSet);
+
+        /**
+         * performs the prediction. 
+         */
+        OutputLayer predict(const float input[], const size_t sz);
 
     private:
         size_t _nhidden;

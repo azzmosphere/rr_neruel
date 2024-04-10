@@ -5,10 +5,13 @@
 networks:
   # Network ID
   - id: "network0"
-    success: 0.0004 
+    success: 0.0001 
     inital_weight: 0.5
     learning_rate: 0.3
     momentum: 0.9
+
+    # Initial training set for network.
+    training_set: resources/training/training-set.0.json
 
   # input configuration
     input:
@@ -16,9 +19,10 @@ networks:
 
     # hidden layer(s)
     hidden:
-      layers: 2
+      layers: 4
       nodes: 8
   
     # Output
     output:
       nodes: 4
+

@@ -14,7 +14,12 @@ cmake --build build -t test
 
 ## Options
 
-- **t** training data
+- **-c** **--config** \[/absolute/path/to/config.yaml\] config file (absolute path to configuration file)
+- **-t** **--tdir** \[/location/of/training/data/\]      training data
+
+```
+rr-neruel -c /absolute/path/to/config.yam -t /location/of/training/data/
+```
 
 ## Training Data Structure
 

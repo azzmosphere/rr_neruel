@@ -1,5 +1,7 @@
 #include "Network.hpp"
 
+using namespace std;
+
 void Network::initalize(
     const string nid,
     const size_t nhidden,
@@ -66,13 +68,36 @@ void Network::train(TrainingSet tset)
             _output.update_inner(_hidden[_nhidden - 1]._nodes, _nhnodes);
         }
 
+        Logger::info("trainingCycle: " + to_string(trainingCycle));
+
         if (error < NN_SUCCESS)
         {
             Logger::info("successfully trained");
             break;
-        }
-
-        printf("INFO: trainingCycle: %ld   error = %9.6f success = %9.6f \n", trainingCycle, error, NN_SUCCESS);
-        ;
+        }       
     }
+}
+
+
+/**
+ *  Perform prediction based on training.
+ */
+OutputLayer Network::predict(const float *input, const size_t sz) 
+{
+
+    float ingress[_nhnodes];
+    bzero(ingress, sz);
+    std::memcpy(ingress, input, sizeof(float) * sz);
+    _hidden[0].layer_activation(ingress, sz);
+
+    bzero(ingress, sz);
+    std::memcpy(ingress, input, sizeof(float) * sz);   
+    for (size_t i = 1; i < _nhidden; i++)
+    {
+        _hidden[i].layer_activation(ingress, _nhnodes);
+         bzero(ingress, _nhnodes);
+        std::memcpy(ingress, _hidden->_nodes, sizeof(float) * _nhnodes);
+    }
+    _output.layer_activation(ingress, _ninodes);
+    return _output;
 }
