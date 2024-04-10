@@ -48,22 +48,23 @@ void process_args(int argc, char** argv) {
 
 void setup() {
     /***************************************
-    // TODO: This needs to go into a configuration filer somewhere, once JSON is working.
     // 1 - Hidden Layers
     // 7 - Input Nodes
     // 8 - Nodes in each hidden layer
     // 4 - Output nodes.
     *****************************************/
-    const size_t hl = 2;
-    const size_t in = 7;
-    const size_t ln = 8;
-    const size_t on = 4;
-    const size_t nid = 0;
+    const string nid = "network0";
 
     ConfigReader config_reader;
     config_reader.load_file(config_file);
 
-    network.initalize(nid, hl, in, ln, on);
+    network.initalize(
+        nid,
+        config_reader.hidden_layers(nid),
+        config_reader.input_nodes(nid),
+        config_reader.hidden_nodes(nid),
+        config_reader.output_nodes(nid)
+    );
     
     // start deserializing data
     tset.deserialize(tdata);

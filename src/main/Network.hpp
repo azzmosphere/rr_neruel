@@ -14,7 +14,7 @@
 class Network {
     public:
         void initalize(
-            const size_t nid,
+            const string nid,
             const size_t nhidden, 
             const size_t ninodes,
             const size_t nhnodes, 
@@ -27,7 +27,7 @@ class Network {
         size_t _ninodes;
         size_t _nhnodes; 
         size_t _nonodes;  
-        size_t _nid;
+        string _nid;
 
     protected:
        Layer _hidden[NN_MAX_LAYERS];
