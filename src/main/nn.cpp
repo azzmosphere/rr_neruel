@@ -4,8 +4,6 @@
 
 #include "nn.hpp"
 
-
-
 // Private Macros
 #define _initialize_(_nodes_sz_, _input_nodes_sz_, _change_weights_, _weights_)  \
   for (int i = 0; i < _nodes_sz_; i++) \
@@ -71,37 +69,13 @@ void NN::setup(
 }
 
 
-
-//TODO: debug code
-void to_terminal(vector<vector<float> > _hidden_weights)
-{
-    int i = 0;
-
-    vector<vector<float>>::iterator it;
-    for (it = _hidden_weights.begin(); it != _hidden_weights.end(); it++, i++) 
-    {
-        vector<float> v = _hidden_weights.at(i);
-        vector<float>::iterator iit;
-        int j = 0;
-        for (iit = v.begin(); iit != v.end(); iit++, j++) 
-        {
-            Logger::info(to_string(i) + ": " + to_string(v.at(j)));
-        }
-    }
-}
-
-
 /******************************************************************
  * Initialize HiddenWeights and ChangeHiddenWeights
  ******************************************************************/
 void NN::initialize_hidden()
 {
   Logger::info("Initialize HiddenWeights and ChangeHiddenWeights");
-
   _initialize_(_hidden_nodes_sz, _input_nodes_sz, _change_hidden_weights, _hidden_weights);
-
-  //TODO :debug code
-  to_terminal(_hidden_weights);
 }
 
 /******************************************************************
@@ -111,5 +85,13 @@ void NN::initialize_output()
 {
     Logger::info("Initialize OutputWeights and ChangeOutputWeights");
     _initialize_(_output_nodes_sz, _hidden_nodes_sz, _change_output_weights, _output_weights);
-     to_terminal(_output_weights);
+}
+
+
+/******************************************************************
+ * Begin training
+ ******************************************************************/
+void NN::train()
+{
+
 }

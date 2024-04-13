@@ -49,6 +49,8 @@ class NN {
         void backpropagate();
         void update_inner_hidden_weights();
         void update_hidden_output_weights();
+
+        void train();
 };
 
 #endif
