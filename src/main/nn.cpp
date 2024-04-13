@@ -30,7 +30,7 @@ void NN::setup(
  ******************************************************************/
 void NN::initialize_hidden()
 {
-    printf("INFO: Initialize HiddenWeights and ChangeHiddenWeights\n");
+    Logger::info("Initialize HiddenWeights and ChangeHiddenWeights");
 
     for (int i = 0; i < _hidden_nodes_sz; i++)
     {
@@ -42,18 +42,18 @@ void NN::initialize_hidden()
     }
 }
 
-/******************************************************************
- * Initialize OutputWeights and ChangeOutputWeights
- ******************************************************************/
-void NN::initialize_output()
-{
-  printf("INFO: Initialize OutputWeights and ChangeOutputWeights\n"); 
-  for (int i = 0; i < OutputNodes; i++)
-  {
-    for (int j = 0; j <= _hidden_nodes_sz; j++)
-    {
-      ChangeOutputWeights[j][i] = 0.0;
-      OutputWeights[j][i] = 2.0 * (RANDO - 0.5) * InitialWeightMax;
-    }
-  }
-}
+// /******************************************************************
+//  * Initialize OutputWeights and ChangeOutputWeights
+//  ******************************************************************/
+// void NN::initialize_output()
+// {
+//   printf("INFO: Initialize OutputWeights and ChangeOutputWeights\n"); 
+//   for (int i = 0; i < OutputNodes; i++)
+//   {
+//     for (int j = 0; j <= _hidden_nodes_sz; j++)
+//     {
+//       ChangeOutputWeights[j][i] = 0.0;
+//       OutputWeights[j][i] = 2.0 * (RANDO - 0.5) * InitialWeightMax;
+//     }
+//   }
+// }

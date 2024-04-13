@@ -5,6 +5,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include "Layer.hpp"
+#include "Logger.hpp"
 
 using namespace std;
 
