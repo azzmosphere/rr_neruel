@@ -10,12 +10,17 @@ void setup() {
     network.initialize_output();
 }
 
-void train() {
-    network.train();
+void train(const string tset_file) {
+    TrainingSet tset;
+    tset.deserialize(tset_file);
+    network.train(tset);
 }
 
 int main() 
 {
     setup();
+
+    train("/Users/newuser/projects/rr_neruel/resources/training/training-set.0.json");
+
     return 0;
 }

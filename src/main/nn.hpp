@@ -7,6 +7,7 @@
 #include <random>
 #include "Layer.hpp"
 #include "Logger.hpp"
+#include "TrainingSet.hpp"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ using namespace std;
 // #define RANDO float(( (random() * 100000) % 100) / 100)
 
 #define RANDO nn_random()
+#define NN_MAX_TRAIN_CYCLE 5
 // #endif
 
 
@@ -50,7 +52,7 @@ class NN {
         void update_inner_hidden_weights();
         void update_hidden_output_weights();
 
-        void train();
+        void train(TrainingSet tset);
 };
 
 #endif
