@@ -2,7 +2,6 @@
 #define LAYER_HPP
 
 #include <vector>
-#include "node.hpp"
 
 using namespace std;
 

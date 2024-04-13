@@ -46,7 +46,7 @@ class NN {
                    const size_t );
         void initialize_hidden();
         void initialize_output();
-        void compute_hidden_layer_activations();
+        void compute_hidden_layer_activations(vector<float>);
         void compute_output_layer_activations();
         void backpropagate();
         void update_inner_hidden_weights();

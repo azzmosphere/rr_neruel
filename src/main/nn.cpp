@@ -64,6 +64,8 @@ void NN::setup(
 
   i = 0;
   _setup_change_weights_(_change_output_weights, _output_weights, _output_nodes_sz);
+
+  _hidden._nodes.resize(_hidden_nodes_sz, 0.);
 }
 
 /******************************************************************
@@ -102,11 +104,40 @@ void NN::train(TrainingSet tset)
     vector<vector<float>>::iterator it;
     for (it = tset._ingress.begin(); it != tset._ingress.end(); it++, i++)
     {
-        vector<float> ingress = *it;
-        vector<float> target  = tset._target.at(i);
+      vector<float> ingress = *it;
+      vector<float> target = tset._target.at(i);
 
+      compute_hidden_layer_activations(ingress);
 
-        Logger::info("trainingCycle: " +  to_string(training_cycle) + "error = " + to_string(error) + " success = 0");
+      Logger::info("trainingCycle: " + to_string(training_cycle) + " error = " + to_string(error) + " success = 0");
     }
+  }
+}
+
+void to_terminal(vector<float> ingress)
+{   
+    vector<float>::iterator it;
+    int i = 0;
+    for (it = ingress.begin(); it != ingress.end(); it++) 
+    {
+        Logger::info(to_string(*it) + ": " + to_string(*it));
+    }
+}
+
+/******************************************************************
+ * Compute hidden layer activations
+ ******************************************************************/
+void NN::compute_hidden_layer_activations(vector<float> ingress)
+{
+  Logger::info("Compute hidden layer activations");
+
+  for (int i = 0; i < _hidden_nodes_sz; i++)
+  {
+    float accum = _hidden_weights[_input_nodes_sz][i];
+    for (int j = 0; j < _input_nodes_sz; j++)
+    {
+      accum += ingress[j] * _hidden_weights[j][i];
+    }
+    _hidden._nodes[i] = 1.0 / (1.0 + exp(-accum));
   }
 }
