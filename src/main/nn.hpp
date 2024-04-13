@@ -4,26 +4,44 @@
 #include <vector>
 #include <math.h>
 #include <stdlib.h>
+#include <random>
 #include "Layer.hpp"
 #include "Logger.hpp"
 
 using namespace std;
 
-#define RANDO float((random() % 100) / 100)
+// #ifndef DEBUG_MODE
+// #define RANDO 42
+// #else
+// #define RANDO float(( (random() * 100000) % 100) / 100)
+
+#define RANDO nn_random()
+// #endif
+
 
 class NN {
     private:
-        Layer _hidden;
-        size_t _hidden_nodes_sz;
         size_t _input_nodes_sz;
+
+        Layer  _hidden;
+        size_t _hidden_nodes_sz;
         vector<vector<float> > _change_hidden_weights;
         vector<vector<float> > _hidden_weights;
+
+
+        vector<vector<float> > _change_output_weights;
+        vector<vector<float> > _output_weights;   
+
         float  _initial_weight_max;
 
     public:
-       
-        Layer _output;
-        void setup(const size_t, const size_t, const float);
+        size_t _output_nodes_sz;
+        Layer  _output;
+
+        void setup(const size_t, 
+                   const size_t, 
+                   const float,
+                   const size_t );
         void initialize_hidden();
         void initialize_output();
         void compute_hidden_layer_activations();
