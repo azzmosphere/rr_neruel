@@ -115,9 +115,9 @@ void NN::train(TrainingSet tset)
 }
 
 void to_terminal(vector<float> ingress)
-{   
+{  
+    Logger::info("showing results for debug purposes"); 
     vector<float>::iterator it;
-    int i = 0;
     for (it = ingress.begin(); it != ingress.end(); it++) 
     {
         Logger::info(to_string(*it) + ": " + to_string(*it));
@@ -130,6 +130,7 @@ void to_terminal(vector<float> ingress)
 void NN::compute_hidden_layer_activations(vector<float> ingress)
 {
   Logger::info("Compute hidden layer activations");
+  // _activations(ingress, _hidden_weights, _hidden, _hidden_nodes_sz, _input_nodes_sz);
 
   for (int i = 0; i < _hidden_nodes_sz; i++)
   {

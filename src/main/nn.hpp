@@ -35,7 +35,6 @@ class NN {
         vector<vector<float> > _output_weights;   
 
         float  _initial_weight_max;
-
     public:
         size_t _output_nodes_sz;
         Layer  _output;
