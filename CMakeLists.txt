@@ -34,3 +34,12 @@ target_link_libraries(rr-neruel PUBLIC yaml-cpp::yaml-cpp) # The library or exec
 
 include_directories(${json_SOURCE_DIR}/include)
 include_directories(${YAML_CPP_SOURCE_DIR}/include)
+
+
+add_executable(nn_test_code src/test/test_nn.cpp ${SOURCE})
+enable_testing()
+
+add_test(
+  NAME nn_test_code
+  COMMAND $<TARGET_FILE:nn_test_code>
+)
