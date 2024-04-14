@@ -10,6 +10,7 @@
 #include "Layer.hpp"
 #include "Logger.hpp"
 #include "TrainingSet.hpp"
+#include "ConfigReader.hpp"
 
 using namespace std;
 
@@ -36,18 +37,24 @@ class NN {
         vector<vector<float> > _change_output_weights;
         vector<vector<float> > _output_weights;   
 
-        float  _initial_weight_max;
+        float _initial_weight_max;
+        float _success;
+        float _learning_rate;
+        float _momentum;
+
+        string _nid;
 
     public:
         size_t _output_nodes_sz;
         Layer  _output;
 
+        // Deprecate this
         void setup(const size_t, 
                    const size_t, 
                    const float,
                    const size_t );
 
-        void setup(map<string, string> config);
+        void setup(string nid, ConfigReader config);
         void initialize_hidden();
         void initialize_output();
         void compute_hidden_layer_activations(vector<float>);

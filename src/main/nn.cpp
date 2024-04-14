@@ -74,11 +74,14 @@ void NN::setup(
 }
 
 
-void NN::setup(map<string, string> config) {
-    _initial_weight_max = stof(config["inital_weight"]);
-    _input_nodes_sz  = stoi(config["input_nodes_sz"]);
-    _hidden_nodes_sz = stoi(config["hidden_nodes_sz"]);
-    _output_nodes_sz = stoi(config["output_nodes_sz"]);
+void NN::setup(string nid, ConfigReader config) {
+    _nid = nid; 
+    _initial_weight_max = config.nn_inital_weight(_nid);
+    _input_nodes_sz  = config.input_nodes(_nid);
+    _hidden_nodes_sz = config.hidden_nodes(_nid);
+    _output_nodes_sz = config.output_nodes(_nid);
+    _success         = config.nn_success(_nid);
+    _learning_rate   = config.nn_learning_rate(_nid);
 
     _hidden_weights.resize(_input_nodes_sz + 1);
     _change_hidden_weights.resize(_input_nodes_sz + 1);

@@ -18,7 +18,18 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "lldb"
+        },
+        {
+            "name": "(lldb) Test NN",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/nn_test_code",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
         }
-
     ]
 }

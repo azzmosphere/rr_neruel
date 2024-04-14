@@ -24,7 +24,7 @@ void ConfigReader::load_file(string config_file) {
     
     for (YAML::iterator it = networks.begin(); it != networks.end(); ++it) {
         YAML::Node node = *it;
-        
+         
         _nn_success       = node["success"].as<float>();
         _nn_inital_weight = node["inital_weight"].as<float>();
         _nn_learning_rate = node["learning_rate"].as<float>();
@@ -53,4 +53,16 @@ unsigned int  ConfigReader::input_nodes(const string nid) {
 
 unsigned int ConfigReader::output_nodes(const string nid) {
     return _output_nodes;
+}
+
+float ConfigReader::nn_inital_weight(const string nid) {
+    return _nn_inital_weight;
+}
+
+float ConfigReader::nn_success(const string nid) {
+    return _nn_success;
+}
+
+float ConfigReader::nn_learning_rate(const string nid) {
+    return _nn_learning_rate;
 }
