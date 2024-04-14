@@ -41,6 +41,8 @@ float nn_random()
   return r;
 }
 
+
+//TODO: Deprecate this!!!!
 void NN::setup(
     const size_t input_nodes_sz,
     const size_t hidden_nodes_sz,
@@ -54,9 +56,12 @@ void NN::setup(
 
   _hidden_weights.resize(_input_nodes_sz + 1);
   _change_hidden_weights.resize(input_nodes_sz + 1);
+  _hidden._delta.resize(_hidden_nodes_sz, 0);
 
   _output_weights.resize(_hidden_nodes_sz + 1);
   _change_output_weights.resize(_hidden_nodes_sz + 1);
+  _output._delta.resize(_output_nodes_sz, 0);
+  _output._nodes.resize(output_nodes_sz, 0);
 
   int i = 0;
   vector<vector<float>>::iterator it;
@@ -66,6 +71,32 @@ void NN::setup(
   _setup_change_weights_(_change_output_weights, _output_weights, _output_nodes_sz);
 
   _hidden._nodes.resize(_hidden_nodes_sz, 0.);
+}
+
+
+void NN::setup(map<string, string> config) {
+    _initial_weight_max = stof(config["inital_weight"]);
+    _input_nodes_sz  = stoi(config["input_nodes_sz"]);
+    _hidden_nodes_sz = stoi(config["hidden_nodes_sz"]);
+    _output_nodes_sz = stoi(config["output_nodes_sz"]);
+
+    _hidden_weights.resize(_input_nodes_sz + 1);
+    _change_hidden_weights.resize(_input_nodes_sz + 1);
+    _hidden._delta.resize(_hidden_nodes_sz, 0);
+
+    _output_weights.resize(_hidden_nodes_sz + 1);
+    _change_output_weights.resize(_hidden_nodes_sz + 1);
+    _output._delta.resize(_output_nodes_sz, 0);
+    _output._nodes.resize(_output_nodes_sz, 0);
+
+    int i = 0;
+    vector<vector<float>>::iterator it;
+    _setup_change_weights_(_change_hidden_weights, _hidden_weights, _hidden_nodes_sz);
+
+    i = 0;
+    _setup_change_weights_(_change_output_weights, _output_weights, _output_nodes_sz);
+
+    _hidden._nodes.resize(_hidden_nodes_sz, 0.);
 }
 
 /******************************************************************
@@ -108,6 +139,8 @@ void NN::train(TrainingSet tset)
       vector<float> target = tset._target.at(i);
 
       compute_hidden_layer_activations(ingress);
+      error = compute_output_layer_activations_err(target, error);
+      backpropagate();
 
       Logger::info("trainingCycle: " + to_string(training_cycle) + " error = " + to_string(error) + " success = 0");
     }
@@ -115,13 +148,13 @@ void NN::train(TrainingSet tset)
 }
 
 void to_terminal(vector<float> ingress)
-{  
-    Logger::info("showing results for debug purposes"); 
-    vector<float>::iterator it;
-    for (it = ingress.begin(); it != ingress.end(); it++) 
-    {
-        Logger::info(to_string(*it) + ": " + to_string(*it));
-    }
+{
+  Logger::info("showing results for debug purposes");
+  vector<float>::iterator it;
+  for (it = ingress.begin(); it != ingress.end(); it++)
+  {
+    Logger::info(to_string(*it) + ": " + to_string(*it));
+  }
 }
 
 /******************************************************************
@@ -130,8 +163,6 @@ void to_terminal(vector<float> ingress)
 void NN::compute_hidden_layer_activations(vector<float> ingress)
 {
   Logger::info("Compute hidden layer activations");
-  // _activations(ingress, _hidden_weights, _hidden, _hidden_nodes_sz, _input_nodes_sz);
-
   for (int i = 0; i < _hidden_nodes_sz; i++)
   {
     float accum = _hidden_weights[_input_nodes_sz][i];
@@ -140,5 +171,42 @@ void NN::compute_hidden_layer_activations(vector<float> ingress)
       accum += ingress[j] * _hidden_weights[j][i];
     }
     _hidden._nodes[i] = 1.0 / (1.0 + exp(-accum));
+  }
+}
+
+/******************************************************************
+ * Compute output layer activations and calculate errors
+ ******************************************************************/
+float NN::compute_output_layer_activations_err(vector<float> target, float error)
+{
+  for (int i = 0; i < _output_nodes_sz; i++)
+  {
+    float accum = _output_weights[_hidden_nodes_sz][i];
+    for (int j = 0; j < _hidden_nodes_sz; j++)
+    {
+      accum += _hidden._nodes[j] * _output_weights[j][i];
+    }
+    _output._nodes[i] = 1.0 / (1.0 + exp(-accum));
+    _output._delta[i] = (target[i] - _output._nodes[i]) * _output._nodes[i] * (1.0 - _output._nodes[i]);
+    error += 0.5 * (target[i] - _output._nodes[i]) * (target[i] - _output._nodes[i]);
+  }
+  Logger::info("Compute output layer activations and calculate errors: " + to_string(error));
+  return error;
+}
+
+/******************************************************************
+ * Backpropagate errors to hidden layer
+ ******************************************************************/
+void NN::backpropagate()
+{
+  for (int i = 0; i < _hidden_nodes_sz; i++)
+  {
+    float accum = 0.0;
+    for (int j = 0; j < _output_nodes_sz; j++)
+    {
+      accum += _output_weights[i][j] * _output._delta[j];
+    }
+    _hidden._delta[i] = accum * _hidden._nodes[i] * (1.0 -  _hidden._nodes[i]);
+    Logger::info("INFO: Backpropagate errors to hidden layer");
   }
 }

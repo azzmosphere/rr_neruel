@@ -8,7 +8,7 @@ using namespace std;
 class Layer {
     public:
         vector<float> _nodes;
-        int          _size;
+        vector<float> _delta;
 };
 
 #endif

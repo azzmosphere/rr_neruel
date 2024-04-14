@@ -5,6 +5,8 @@
 #include <math.h>
 #include <stdlib.h>
 #include <random>
+#include <map>
+#include <string>
 #include "Layer.hpp"
 #include "Logger.hpp"
 #include "TrainingSet.hpp"
@@ -22,7 +24,7 @@ using namespace std;
 
 
 class NN {
-    private:
+    protected:
         size_t _input_nodes_sz;
 
         Layer  _hidden;
@@ -35,6 +37,7 @@ class NN {
         vector<vector<float> > _output_weights;   
 
         float  _initial_weight_max;
+
     public:
         size_t _output_nodes_sz;
         Layer  _output;
@@ -43,10 +46,12 @@ class NN {
                    const size_t, 
                    const float,
                    const size_t );
+
+        void setup(map<string, string> config);
         void initialize_hidden();
         void initialize_output();
         void compute_hidden_layer_activations(vector<float>);
-        void compute_output_layer_activations();
+        float compute_output_layer_activations_err(vector<float>, float);
         void backpropagate();
         void update_inner_hidden_weights();
         void update_hidden_output_weights();
