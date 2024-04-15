@@ -148,16 +148,16 @@ void NN::train(TrainingSet tset)
       update_hidden_hidden_weights();
       update_hidden_output_weights();
 
-      /******************************************************************
-       * If error rate is less than pre-determined threshold then end
-       ******************************************************************/
-      if (error < _success)
-      {
-        printf("INFO: Training Set Solved!\n");
-        break;
-      }
-
       Logger::info("trainingCycle: " + to_string(training_cycle) + " error = " + to_string(error) + " success = " + to_string(_success));
+    }
+
+    /******************************************************************
+     * If error rate is less than pre-determined threshold then end
+     ******************************************************************/
+    if (error < _success)
+    {
+      printf("INFO: Training Set Solved!\n");
+      break;
     }
   }
 }
@@ -242,9 +242,6 @@ void NN::_update_weights(vector<vector<float>> &change_weights,
     {
       change_weights[j][i] = _learning_rate * ingress[j] * layer._delta[i] + _momentum * change_weights[j][i];
       weights[j][i] += change_weights[j][i];
-
-      Logger::info("change_weight[j][i]: " + to_string(change_weights[j][i]));
-      Logger::info("weights[j][i]: " + to_string(weights[j][i]));
     }
   }
 }
@@ -256,14 +253,12 @@ void NN::update_input_hidden_weights(vector<float> ingress)
 {
   Logger::info("Update Input-->Hidden Weights");
   _update_weights(
-      _change_hidden_weights, // 0 
+      _change_hidden_weights, // 0
       _hidden_nodes_sz,       // 1
       _hidden_weights,        // 2
       ingress,                // 3
       _input_nodes_sz,        // 4
       _hidden);               // 5
-  Logger::info("debug info for _change_hidden_weights");
-  to_terminal(_change_hidden_weights[0]);
 }
 
 /******************************************************************
@@ -290,6 +285,4 @@ void NN::update_hidden_output_weights()
       _hidden._nodes,         // 3
       _hidden_nodes_sz,       // 4
       _output);               // 5
-  Logger::info("debug info for _change_output_weights");
-  to_terminal(_change_output_weights[0]);
 }

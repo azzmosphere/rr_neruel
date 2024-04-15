@@ -14,14 +14,15 @@
 
 using namespace std;
 
-// #ifndef DEBUG_MODE
-// #define RANDO 42
-// #else
-// #define RANDO float(( (random() * 100000) % 100) / 100)
-
+#ifndef TEST_MODE
 #define RANDO nn_random()
-#define NN_MAX_TRAIN_CYCLE 50000
-// #endif
+#define NN_MAX_TRAIN_CYCLE 2147483647
+#else
+#define RANDO 42
+#define NN_MAX_TRAIN_CYCLE 5
+#endif
+
+
 
 class NN
 {
