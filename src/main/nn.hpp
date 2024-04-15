@@ -67,7 +67,7 @@ public:
     void compute_hidden_layer_activations(vector<float>);
     float compute_output_layer_activations_err(vector<float>, float);
     void backpropagate();
-    void update_inner_hidden_weights(vector<float>);
+    void update_input_hidden_weights(vector<float>);
     void update_hidden_hidden_weights();
     void update_hidden_output_weights();
 

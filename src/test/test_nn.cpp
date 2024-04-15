@@ -35,6 +35,11 @@ class TestNN : public NN {
     float test_learning_rate() {
         return _learning_rate;
     }
+
+    Layer get_first_hidden() 
+    {
+        return _hidden;
+    }
 };
 
 MockConfigReader config_reader;
@@ -61,7 +66,11 @@ bool test_update_weights() {
     // 3 * 1 + 4 * 0 = 3 + 0 = 3
 
     //network.update_inner_hidden_weights();
-    return true;
+    vector<float> ingress = {1, 1, 1, 1, 1, 1, 0};
+    network.update_input_hidden_weights(ingress);
+    Layer l = network.get_first_hidden();
+    
+    return l._nodes[0] == 3;
 }
 
 int main() 
@@ -69,6 +78,7 @@ int main()
     
 
     if (!test_setup()) return 1;
+    if (!test_update_weights()) return 1;
     return 0;
 }
 

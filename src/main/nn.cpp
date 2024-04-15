@@ -144,9 +144,9 @@ void NN::train(TrainingSet tset)
       compute_hidden_layer_activations(ingress);
       error = compute_output_layer_activations_err(target, error);
       backpropagate();
-      update_inner_hidden_weights(ingress);
+      update_input_hidden_weights(ingress);
 
-      Logger::info("trainingCycle: " + to_string(training_cycle) + " error = " + to_string(error) + " success = 0");
+      Logger::info("trainingCycle: " + to_string(training_cycle) + " error = " + to_string(error) + " success = " + to_string(_success));
     }
   }
 }
@@ -235,11 +235,14 @@ void NN::_update_weights(vector<vector<float>> &change_weights,
 }
 
 /******************************************************************
- * Update Inner-->Hidden Weights
+ * Update Input-->Hidden Weights.
+ * 
+ * Update this to cycle through each hidden layer, when hidden 
+ * layers are added.
  ******************************************************************/
-void NN::update_inner_hidden_weights(vector<float> ingress)
+void NN::update_input_hidden_weights(vector<float> ingress)
 {
-  Logger::info("Update Inner-->Hidden Weights");
+  Logger::info("Update Input-->Hidden Weights");
   _update_weights(_change_hidden_weights, _hidden_nodes_sz, _hidden_weights, ingress, _input_nodes_sz, _hidden);
   to_terminal(_change_hidden_weights[0]);
 }
