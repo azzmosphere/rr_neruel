@@ -41,8 +41,7 @@ float nn_random()
   return r;
 }
 
-
-//TODO: Deprecate this!!!!
+// TODO: Deprecate this!!!!
 void NN::setup(
     const size_t input_nodes_sz,
     const size_t hidden_nodes_sz,
@@ -73,33 +72,34 @@ void NN::setup(
   _hidden._nodes.resize(_hidden_nodes_sz, 0.);
 }
 
+void NN::setup(string nid, ConfigReader config)
+{
+  _nid = nid;
+  _initial_weight_max = config.nn_inital_weight(_nid);
+  _input_nodes_sz = config.input_nodes(_nid);
+  _hidden_nodes_sz = config.hidden_nodes(_nid);
+  _output_nodes_sz = config.output_nodes(_nid);
+  _success = config.nn_success(_nid);
+  _learning_rate = config.nn_learning_rate(_nid);
+  _momentum = config.nn_momentum(_nid);
 
-void NN::setup(string nid, ConfigReader config) {
-    _nid = nid; 
-    _initial_weight_max = config.nn_inital_weight(_nid);
-    _input_nodes_sz  = config.input_nodes(_nid);
-    _hidden_nodes_sz = config.hidden_nodes(_nid);
-    _output_nodes_sz = config.output_nodes(_nid);
-    _success         = config.nn_success(_nid);
-    _learning_rate   = config.nn_learning_rate(_nid);
+  _hidden_weights.resize(_input_nodes_sz + 1);
+  _change_hidden_weights.resize(_input_nodes_sz + 1);
+  _hidden._delta.resize(_hidden_nodes_sz, 1);
 
-    _hidden_weights.resize(_input_nodes_sz + 1);
-    _change_hidden_weights.resize(_input_nodes_sz + 1);
-    _hidden._delta.resize(_hidden_nodes_sz, 0);
+  _output_weights.resize(_hidden_nodes_sz + 1);
+  _change_output_weights.resize(_hidden_nodes_sz + 1);
+  _output._delta.resize(_output_nodes_sz, 2);
+  _output._nodes.resize(_output_nodes_sz, 0);
 
-    _output_weights.resize(_hidden_nodes_sz + 1);
-    _change_output_weights.resize(_hidden_nodes_sz + 1);
-    _output._delta.resize(_output_nodes_sz, 0);
-    _output._nodes.resize(_output_nodes_sz, 0);
+  int i = 0;
+  vector<vector<float>>::iterator it;
+  _setup_change_weights_(_change_hidden_weights, _hidden_weights, _hidden_nodes_sz);
 
-    int i = 0;
-    vector<vector<float>>::iterator it;
-    _setup_change_weights_(_change_hidden_weights, _hidden_weights, _hidden_nodes_sz);
+  i = 0;
+  _setup_change_weights_(_change_output_weights, _output_weights, _output_nodes_sz);
 
-    i = 0;
-    _setup_change_weights_(_change_output_weights, _output_weights, _output_nodes_sz);
-
-    _hidden._nodes.resize(_hidden_nodes_sz, 0.);
+  _hidden._nodes.resize(_hidden_nodes_sz, 0.);
 }
 
 /******************************************************************
@@ -144,6 +144,7 @@ void NN::train(TrainingSet tset)
       compute_hidden_layer_activations(ingress);
       error = compute_output_layer_activations_err(target, error);
       backpropagate();
+      update_inner_hidden_weights(ingress);
 
       Logger::info("trainingCycle: " + to_string(training_cycle) + " error = " + to_string(error) + " success = 0");
     }
@@ -209,7 +210,36 @@ void NN::backpropagate()
     {
       accum += _output_weights[i][j] * _output._delta[j];
     }
-    _hidden._delta[i] = accum * _hidden._nodes[i] * (1.0 -  _hidden._nodes[i]);
+    _hidden._delta[i] = accum * _hidden._nodes[i] * (1.0 - _hidden._nodes[i]);
     Logger::info("INFO: Backpropagate errors to hidden layer");
   }
+}
+
+void NN::_update_weights(vector<vector<float>> &change_weights, 
+                     const int nodes_sz, 
+                     vector<vector<float>> &weights,
+                     vector<float> ingress,
+                     const int ingress_sz,
+                     Layer layer)
+{
+  for (int i = 0; i < nodes_sz; i++)
+  {
+    change_weights[ingress_sz][i] = _learning_rate * layer._delta[i] + _momentum * change_weights[ingress_sz][i];
+    weights[ingress_sz][i] += change_weights[ingress_sz][i];
+    for (int j = 0; j < ingress_sz; j++)
+    {
+      change_weights[j][i] = _learning_rate * ingress[j] * layer._delta[i] + _momentum * change_weights[j][i];
+      weights[j][i] += change_weights[j][i];
+    }
+  }
+}
+
+/******************************************************************
+ * Update Inner-->Hidden Weights
+ ******************************************************************/
+void NN::update_inner_hidden_weights(vector<float> ingress)
+{
+  Logger::info("Update Inner-->Hidden Weights");
+  _update_weights(_change_hidden_weights, _hidden_nodes_sz, _hidden_weights, ingress, _input_nodes_sz, _hidden);
+  to_terminal(_change_hidden_weights[0]);
 }

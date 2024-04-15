@@ -66,3 +66,7 @@ float ConfigReader::nn_success(const string nid) {
 float ConfigReader::nn_learning_rate(const string nid) {
     return _nn_learning_rate;
 }
+
+float ConfigReader::nn_momentum(const string nid) {
+    return _nn_momentum;
+}
