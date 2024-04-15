@@ -145,6 +145,17 @@ void NN::train(TrainingSet tset)
       error = compute_output_layer_activations_err(target, error);
       backpropagate();
       update_input_hidden_weights(ingress);
+      update_hidden_hidden_weights();
+      update_hidden_output_weights();
+
+      /******************************************************************
+       * If error rate is less than pre-determined threshold then end
+       ******************************************************************/
+      if (error < _success)
+      {
+        printf("INFO: Training Set Solved!\n");
+        break;
+      }
 
       Logger::info("trainingCycle: " + to_string(training_cycle) + " error = " + to_string(error) + " success = " + to_string(_success));
     }
@@ -215,12 +226,12 @@ void NN::backpropagate()
   }
 }
 
-void NN::_update_weights(vector<vector<float>> &change_weights, 
-                     const int nodes_sz, 
-                     vector<vector<float>> &weights,
-                     vector<float> ingress,
-                     const int ingress_sz,
-                     Layer layer)
+void NN::_update_weights(vector<vector<float>> &change_weights,
+                         const int nodes_sz,
+                         vector<vector<float>> &weights,
+                         vector<float> ingress,
+                         const int ingress_sz,
+                         Layer layer)
 {
   for (int i = 0; i < nodes_sz; i++)
   {
@@ -236,13 +247,30 @@ void NN::_update_weights(vector<vector<float>> &change_weights,
 
 /******************************************************************
  * Update Input-->Hidden Weights.
- * 
- * Update this to cycle through each hidden layer, when hidden 
- * layers are added.
  ******************************************************************/
 void NN::update_input_hidden_weights(vector<float> ingress)
 {
   Logger::info("Update Input-->Hidden Weights");
   _update_weights(_change_hidden_weights, _hidden_nodes_sz, _hidden_weights, ingress, _input_nodes_sz, _hidden);
-  to_terminal(_change_hidden_weights[0]);
+}
+
+/******************************************************************
+ * Update Hidden-->Hidden Weights.
+ *
+ * Update all hidden layers, last hidden layer will got to output
+ * layer.
+ ******************************************************************/
+void NN::update_hidden_hidden_weights()
+{
+  Logger::info("Update Hidden-->Hidden Weights");
+}
+
+/******************************************************************
+ * Update Hidden-->Output Weights
+ ******************************************************************/
+void NN::update_hidden_output_weights()
+{
+  Logger::info("Update Hidden-->Output Weights");
+  _update_weights(_change_output_weights, _output_nodes_sz, _hidden_weights, _hidden._nodes, _output_nodes_sz, _output);
+  to_terminal(_change_output_weights[0]);
 }
