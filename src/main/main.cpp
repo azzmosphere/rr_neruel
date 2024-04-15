@@ -17,7 +17,8 @@ void setup()
 }
 
 // Need to get a file format going for training sets.  Training should happen, here for each network.
-void train(const string tset_file) {
+void train(const string tset_file) 
+{
     TrainingSet tset;
     tset.deserialize(tset_file);
     network.train(tset);

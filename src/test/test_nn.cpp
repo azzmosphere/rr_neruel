@@ -40,6 +40,11 @@ class TestNN : public NN {
     {
         return _hidden;
     }
+
+    Layer get_first_output() 
+    {
+        return _output;
+    }
 };
 
 MockConfigReader config_reader;
@@ -56,7 +61,7 @@ bool test_setup() {
 }
 
 //ChangeHiddenWeights[InputNodes][i] = LearningRate * HiddenDelta[i] + Momentum * ChangeHiddenWeights[InputNodes][i];
-bool test_update_weights() {
+bool test_update_input_hidden_weights() {
     // B O D M A S
     // ChangeHiddenWeights[InputNodes][i]  = 
     // LearningRate                        = 3
@@ -68,17 +73,38 @@ bool test_update_weights() {
     //network.update_inner_hidden_weights();
     vector<float> ingress = {1, 1, 1, 1, 1, 1, 0};
     network.update_input_hidden_weights(ingress);
-    Layer l = network.get_first_hidden();
+    //Layer l = network.get_first_hidden();
+
+   
+    
+    return true;
+}
+
+// ChangeOutputWeights[HiddenNodes][i] = LearningRate * OutputDelta[i] + Momentum * ChangeOutputWeights[HiddenNodes][i]
+bool test_update_hidden_output_weights() {
+    // B O D M A S
+    // LearningRate                        = 3
+    // OutputDelta                         = 1
+    // Momentum                            = 4
+    // ChangeOutputWeights                 = 0
+    // 3 * 1 + 4 * 0 = 3 + 0 = 3
+
+    network.update_hidden_output_weights();
+    Layer l = network.get_first_output();
     
     return l._nodes[0] == 3;
 }
+
 
 int main() 
 {
     
 
     if (!test_setup()) return 1;
-    if (!test_update_weights()) return 1;
+    if (!test_update_input_hidden_weights()) return 1;
+
+    test_update_hidden_output_weights();
+
     return 0;
 }
 

@@ -237,10 +237,14 @@ void NN::_update_weights(vector<vector<float>> &change_weights,
   {
     change_weights[ingress_sz][i] = _learning_rate * layer._delta[i] + _momentum * change_weights[ingress_sz][i];
     weights[ingress_sz][i] += change_weights[ingress_sz][i];
+
     for (int j = 0; j < ingress_sz; j++)
     {
       change_weights[j][i] = _learning_rate * ingress[j] * layer._delta[i] + _momentum * change_weights[j][i];
       weights[j][i] += change_weights[j][i];
+
+      Logger::info("change_weight[j][i]: " + to_string(change_weights[j][i]));
+      Logger::info("weights[j][i]: " + to_string(weights[j][i]));
     }
   }
 }
@@ -251,7 +255,15 @@ void NN::_update_weights(vector<vector<float>> &change_weights,
 void NN::update_input_hidden_weights(vector<float> ingress)
 {
   Logger::info("Update Input-->Hidden Weights");
-  _update_weights(_change_hidden_weights, _hidden_nodes_sz, _hidden_weights, ingress, _input_nodes_sz, _hidden);
+  _update_weights(
+      _change_hidden_weights, // 0 
+      _hidden_nodes_sz,       // 1
+      _hidden_weights,        // 2
+      ingress,                // 3
+      _input_nodes_sz,        // 4
+      _hidden);               // 5
+  Logger::info("debug info for _change_hidden_weights");
+  to_terminal(_change_hidden_weights[0]);
 }
 
 /******************************************************************
@@ -271,6 +283,13 @@ void NN::update_hidden_hidden_weights()
 void NN::update_hidden_output_weights()
 {
   Logger::info("Update Hidden-->Output Weights");
-  _update_weights(_change_output_weights, _output_nodes_sz, _hidden_weights, _hidden._nodes, _output_nodes_sz, _output);
+  _update_weights(
+      _change_output_weights, // 0
+      _output_nodes_sz,       // 1
+      _output_weights,        // 2
+      _hidden._nodes,         // 3
+      _hidden_nodes_sz,       // 4
+      _output);               // 5
+  Logger::info("debug info for _change_output_weights");
   to_terminal(_change_output_weights[0]);
 }

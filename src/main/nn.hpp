@@ -20,7 +20,7 @@ using namespace std;
 // #define RANDO float(( (random() * 100000) % 100) / 100)
 
 #define RANDO nn_random()
-#define NN_MAX_TRAIN_CYCLE 5
+#define NN_MAX_TRAIN_CYCLE 50000
 // #endif
 
 class NN
