@@ -172,21 +172,52 @@ void to_terminal(vector<float> ingress)
   }
 }
 
+void NN::layer_activation(
+  Layer &layer,
+  vector<float> &ingress, 
+  vector<vector<float>> &weights,
+  const int in_node_sz,
+  const int node_sz)
+{
+  for (int i = 0; i < node_sz; i++)
+  {
+    float accum = weights[in_node_sz][i];
+    for (int j = 0; j < in_node_sz; j++)
+    {
+      accum += ingress[j] * weights[j][i];
+    }
+    layer._nodes[i] = 1.0 / (1.0 + exp(-accum));
+  }
+}
+
 /******************************************************************
  * Compute hidden layer activations
  ******************************************************************/
 void NN::compute_hidden_layer_activations(vector<float> ingress)
 {
   Logger::info("Compute hidden layer activations");
-  for (int i = 0; i < _hidden_nodes_sz; i++)
-  {
-    float accum = _hidden_weights[_input_nodes_sz][i];
-    for (int j = 0; j < _input_nodes_sz; j++)
-    {
-      accum += ingress[j] * _hidden_weights[j][i];
-    }
-    _hidden._nodes[i] = 1.0 / (1.0 + exp(-accum));
-  }
+  layer_activation(_hidden, ingress, _hidden_weights, _input_nodes_sz, _hidden_nodes_sz);
+
+
+  // for (int i = 0; i < _hidden_nodes_sz; i++)
+  // {
+  //   float accum = _hidden_weights[_input_nodes_sz][i];
+  //   for (int j = 0; j < _input_nodes_sz; j++)
+  //   {
+  //     accum += ingress[j] * _hidden_weights[j][i];
+  //   }
+  //   _hidden._nodes[i] = 1.0 / (1.0 + exp(-accum));
+  // }
+}
+
+/******************************************************************
+ * Compute output layer activations
+ ******************************************************************/
+void NN::compute_output_layer_activations()
+{
+  Logger::info("Compute output layer activations");
+  // layer_activation(_hidden, ingress, _hidden_weights, _input_nodes_sz, _hidden_nodes_sz);
+  layer_activation(_output, _hidden._nodes, _output_weights, _hidden_nodes_sz, _output_nodes_sz);
 }
 
 /******************************************************************
@@ -285,4 +316,12 @@ void NN::update_hidden_output_weights()
       _hidden._nodes,         // 3
       _hidden_nodes_sz,       // 4
       _output);               // 5
+}
+
+Layer NN::predict(vector<float> ingress)
+{
+  compute_hidden_layer_activations(ingress);
+  compute_output_layer_activations();
+
+  return _output;
 }

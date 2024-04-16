@@ -1,3 +1,8 @@
+/**************************************************************************
+ * Each neruel network can be considered an agent, they can be changed to 
+ * perform a specitic task.
+ **************************************************************************/
+
 #ifndef nn_hpp
 #define nn_hpp
 
@@ -22,8 +27,6 @@ using namespace std;
 #define NN_MAX_TRAIN_CYCLE 5
 #endif
 
-
-
 class NN
 {
 private:
@@ -33,6 +36,13 @@ private:
                          vector<float> ingress,
                          const int ingress_sz,
                          Layer layer);
+    
+    void layer_activation(
+        Layer &layer,
+        vector<float> &ingress, 
+        vector<vector<float>> &weights,
+        const int in_node_sz,
+        const int node_sz);
 
 protected:
     size_t _input_nodes_sz;
@@ -65,14 +75,18 @@ public:
     void setup(string nid, ConfigReader config);
     void initialize_hidden();
     void initialize_output();
+    
     void compute_hidden_layer_activations(vector<float>);
+    void compute_output_layer_activations();
     float compute_output_layer_activations_err(vector<float>, float);
+    
     void backpropagate();
     void update_input_hidden_weights(vector<float>);
     void update_hidden_hidden_weights();
     void update_hidden_output_weights();
 
     void train(TrainingSet tset);
+    Layer predict(vector<float>);
 };
 
 #endif

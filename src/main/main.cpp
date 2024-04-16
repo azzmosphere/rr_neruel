@@ -30,5 +30,13 @@ int main()
 
     train("/Users/newuser/projects/rr_neruel/resources/training/training-set.0.json");
 
+    // Perform some predictions to finish off the testing.
+    vector<float> ingress = {1, 1, 1, 0, 0, 0, 0};
+    network.predict(ingress);
+
+    for (int i = 0; i < network._output_nodes_sz; i++) {
+        Logger::info("col " + to_string(i) + ": " + to_string(network._output._nodes.at(i)));
+    }
+
     return 0;
 }
