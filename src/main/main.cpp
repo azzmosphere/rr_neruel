@@ -1,89 +1,92 @@
-#include "main.hpp"
+#include "nn.hpp"
+#include <getopt.h>
 
-Network network;
-TrainingSet tset;
-string tdata;
-string config_file;
+const float NN_INITIAL_WEIGHT = 0.5;
+NN network;
+ConfigReader config;
+string training_set;
 
-void process_args(int argc, char** argv);
-void setup();
-
-int main(int argc, char** argv) {
-    process_args(argc, argv);
-    setup();
-
-    // start procesing data.
-    Logger::info("Begin processing data.");
-
-    // TODO: dev code to test
-    const float ingress[] = {0, 1, 1, 0, 0, 0, 0};
-    
-    Layer output = network.predict(ingress, sizeof(ingress) / sizeof(float));
-
-    for (size_t i = 0; i < 4; i++) {
-        Logger::info("col: " + to_string(i) + " value:" + to_string(output._nodes[i]) );
-    }
-
-    return EXIT_SUCCESS;
+// Perform any network(s) configuration, inject config file,
+// add MPIO
+void setup()
+{
+    network.setup("nid0", config);
+    network.initialize_hidden();
+    network.initialize_output();
 }
 
+// Need to get a file format going for training sets.  Training should happen, here for each network.
+bool train(const string tset_file)
+{
+    TrainingSet tset;
+    tset.deserialize(tset_file);
+    return network.train(tset);
+}
 
-void process_args(int argc, char** argv) {
-    const char* const short_opts = "t:c:";
+void process_args(int argc, char **argv)
+{
+    const char *const short_opts = "t:c:";
     const option long_opts[] = {
         {"config", required_argument, nullptr, 'c'},
-        {"tdir",   optional_argument, nullptr, 't'}
-    };
+        {"tdir", optional_argument, nullptr, 't'},
+        {"help", no_argument, nullptr, 'h'}};
 
-     while (true)
-     {
-         const auto opt = getopt_long(argc, argv, short_opts, long_opts, nullptr);
+    while (true)
+    {
+        const auto opt = getopt_long(argc, argv, short_opts, long_opts, nullptr);
 
         if (-1 == opt)
             break;
 
-        switch (opt) 
+        switch (opt)
         {
-            // config file
-            case 'c':
-                config_file = string(optarg);
-                Logger::info("config set: " + config_file);
-                break;
+        // Help is first option so that loop is automatically broken
+        case 'h':
+            cout << "print this help screen" << endl;
+            break;
 
-            // training set.
-            case 't':
-                tdata = string(optarg);
-                Logger::info("trainging set: " + tdata);
-                break;
+        // config file
+        case 'c':
+            // string config_file = string(optarg);
+            Logger::info("config set: " + string(optarg));
+            config.load_file(string(optarg));
+            break;
 
+        // training set.
+        case 't':
+            // string tdata = string(optarg);
+            Logger::info("trainging set: " + string(optarg));
+            training_set = string(optarg);
+            break;
 
+        default:
+            cout << "print this help screen" << endl;
+            break;
         }
-     }
+    }
 }
 
-void setup() {
-    /***************************************
-    // 1 - Hidden Layers
-    // 7 - Input Nodes
-    // 8 - Nodes in each hidden layer
-    // 4 - Output nodes.
-    *****************************************/
-    const string nid = "network0";
+int main(int argc, char **argv)
+{
+    process_args(argc, argv);
+    setup();
 
-    ConfigReader config_reader;
-    config_reader.load_file(config_file);
+    if (train(training_set))
+    {
 
-    network.initalize(
-        nid,
-        config_reader.hidden_layers(nid),
-        config_reader.input_nodes(nid),
-        config_reader.hidden_nodes(nid),
-        config_reader.output_nodes(nid)
-    );
-    
-    // start deserializing data
-    tset.deserialize(tdata);
+        // Perform some predictions to finish off the testing.
+        vector<float> ingress = {1, 1, 1, 0, 0, 0, 0};
+        network.predict(ingress);
 
-    // train network.
-    network.train(tset);
+        for (int i = 0; i < network._output_nodes_sz; i++)
+        {
+            Logger::info("col " + to_string(i) + ": " + to_string(network._output._nodes.at(i)));
+        }
+    }
+    else
+    {
+        Logger::info("could not train model");
+    }
+
+    return 0;
 }

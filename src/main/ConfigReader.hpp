@@ -31,7 +31,7 @@ class ConfigReader : public FileReader {
 
         void load_file(const string config);
     
-    private:
+    protected:
         unsigned int _hidden_layers = 0;
         unsigned int _hidden_nodes = 0;
         unsigned int _input_nodes  = 0;

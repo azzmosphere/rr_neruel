@@ -1,28 +1,30 @@
 # Configuration for Ryder Robot Neural Network platform.
 
-# Config for training set 0
+# Config for training set 1
+#
+# Attempts to solve XOR but does it using decimal values.
 
 networks:
   # Network ID
   - id: "network0"
-    success: 0.0001 
+    success:  0.0004
     inital_weight: 0.5
     learning_rate: 0.3
     momentum: 0.9
 
     # Initial training set for network.
-    training_set: resources/training/training-set.0.json
+    training_set: resources/training/training-set.1.json
 
   # input configuration
     input:
-      nodes: 7
+      nodes: 6
 
     # hidden layer(s)
     hidden:
       layers: 4
-      nodes: 8
+      nodes: 7
   
     # Output
     output:
-      nodes: 4
+      nodes: 1
 
