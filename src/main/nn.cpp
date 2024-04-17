@@ -123,8 +123,9 @@ void NN::initialize_output()
 /******************************************************************
  * Begin training
  ******************************************************************/
-void NN::train(TrainingSet tset)
+bool NN::train(TrainingSet tset)
 {
+  bool trained = false;
   for (int training_cycle = 1; training_cycle < NN_MAX_TRAIN_CYCLE; training_cycle++)
   {
     float error = 0.0;
@@ -157,9 +158,12 @@ void NN::train(TrainingSet tset)
     if (error < _success)
     {
       printf("INFO: Training Set Solved!\n");
+      trained = true;
       break;
     }
   }
+
+  return trained;
 }
 
 void to_terminal(vector<float> ingress)

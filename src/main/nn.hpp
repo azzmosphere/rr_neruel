@@ -85,7 +85,12 @@ public:
     void update_hidden_hidden_weights();
     void update_hidden_output_weights();
 
-    void train(TrainingSet tset);
+    /*************************************************************************
+     * return true if training is successful, otherwise false. If training 
+     * fails then do not perform predictions,  model will need ot be 
+     * re-trained.
+     *************************************************************************/
+    bool train(TrainingSet tset);
     Layer predict(vector<float>);
 };
 
