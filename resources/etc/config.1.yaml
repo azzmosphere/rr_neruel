@@ -3,6 +3,10 @@
 # Config for training set 1
 #
 # Attempts to solve XOR but does it using decimal values.
+#
+# Currently this test doesn't get past the training stage,  we want to use it because when more sensors get added
+# to the robot, we want to send value to the arduino board as floats,  for instance dirive the motor 10, 100 or something like
+# that. 
 
 networks:
   # Network ID
