@@ -66,12 +66,6 @@ public:
     size_t _output_nodes_sz;
     Layer _output;
 
-    // Deprecate this
-    void setup(const size_t,
-               const size_t,
-               const float,
-               const size_t);
-
     void setup(string nid, ConfigReader config);
     void initialize_hidden();
     void initialize_output();

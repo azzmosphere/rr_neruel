@@ -4,6 +4,8 @@
 
 #include "nn.hpp"
 
+//TODO: Remove these macros and replace with functions,  will need functions to process
+// multiple hidden layers easily.
 // Private Macros
 #define _initialize_(_nodes_sz_, _input_nodes_sz_, _change_weights_, _weights_) \
   for (int i = 0; i < _nodes_sz_; i++)                                          \
@@ -41,36 +43,6 @@ float nn_random()
   return r;
 }
 
-// TODO: Deprecate this!!!!
-void NN::setup(
-    const size_t input_nodes_sz,
-    const size_t hidden_nodes_sz,
-    const float initial_weight_max,
-    const size_t output_nodes_sz)
-{
-  _initial_weight_max = initial_weight_max;
-  _input_nodes_sz = input_nodes_sz;
-  _hidden_nodes_sz = hidden_nodes_sz;
-  _output_nodes_sz = output_nodes_sz;
-
-  _hidden_weights.resize(_input_nodes_sz + 1);
-  _change_hidden_weights.resize(input_nodes_sz + 1);
-  _hidden._delta.resize(_hidden_nodes_sz, 0);
-
-  _output_weights.resize(_hidden_nodes_sz + 1);
-  _change_output_weights.resize(_hidden_nodes_sz + 1);
-  _output._delta.resize(_output_nodes_sz, 0);
-  _output._nodes.resize(output_nodes_sz, 0);
-
-  int i = 0;
-  vector<vector<float>>::iterator it;
-  _setup_change_weights_(_change_hidden_weights, _hidden_weights, _hidden_nodes_sz);
-
-  i = 0;
-  _setup_change_weights_(_change_output_weights, _output_weights, _output_nodes_sz);
-
-  _hidden._nodes.resize(_hidden_nodes_sz, 0.);
-}
 
 void NN::setup(string nid, ConfigReader config)
 {
@@ -201,17 +173,6 @@ void NN::compute_hidden_layer_activations(vector<float> ingress)
 {
   Logger::info("Compute hidden layer activations");
   layer_activation(_hidden, ingress, _hidden_weights, _input_nodes_sz, _hidden_nodes_sz);
-
-
-  // for (int i = 0; i < _hidden_nodes_sz; i++)
-  // {
-  //   float accum = _hidden_weights[_input_nodes_sz][i];
-  //   for (int j = 0; j < _input_nodes_sz; j++)
-  //   {
-  //     accum += ingress[j] * _hidden_weights[j][i];
-  //   }
-  //   _hidden._nodes[i] = 1.0 / (1.0 + exp(-accum));
-  // }
 }
 
 /******************************************************************
@@ -220,7 +181,6 @@ void NN::compute_hidden_layer_activations(vector<float> ingress)
 void NN::compute_output_layer_activations()
 {
   Logger::info("Compute output layer activations");
-  // layer_activation(_hidden, ingress, _hidden_weights, _input_nodes_sz, _hidden_nodes_sz);
   layer_activation(_output, _hidden._nodes, _output_weights, _hidden_nodes_sz, _output_nodes_sz);
 }
 
