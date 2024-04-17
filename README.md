@@ -12,6 +12,19 @@ cmake --build build -t test
 
 ```
 
+## Testing
+
+```
+# Appears to work correctly most of the time.
+./build/rr-neruel -c ./resources/etc/config.0.yaml -t ./resources/training/training-set.0.json
+
+# Appears not to work,  may need to support more hidden layers.
+./build/rr-neruel -c ./resources/etc/config.1.yaml -t ./resources/training/training-set.1.json
+
+# Works with very little training,  extremly simple problem
+./build/rr-neruel -c ./resources/etc/config.2.yaml -t ./resources/training/training-set.2.json
+```
+
 ## Options
 
 - **-c** **--config** \[/absolute/path/to/config.yaml\] config file (absolute path to configuration file)

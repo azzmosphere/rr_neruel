@@ -1,0 +1,18 @@
+[
+    {
+        "ingress": [ 0, 0],
+        "target":  [0]
+    },
+    {
+        "ingress": [ 0, 1],
+        "target":  [1]
+    },
+    {
+        "ingress": [ 1, 0],
+        "target":  [1]
+    },
+    {
+        "ingress": [ 1, 1],
+        "target":  [0]
+    }
+]
