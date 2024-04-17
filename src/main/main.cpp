@@ -4,12 +4,12 @@
 const float NN_INITIAL_WEIGHT = 0.5;
 NN network;
 ConfigReader config;
+string training_set;
 
 // Perform any network(s) configuration, inject config file,
 // add MPIO
 void setup()
 {
-    config.load_file("/Users/newuser/projects/rr_neruel/resources/etc/config.yaml");
     network.setup("nid0", config);
     network.initialize_hidden();
     network.initialize_output();
@@ -49,14 +49,14 @@ void process_args(int argc, char **argv)
         case 'c':
             // string config_file = string(optarg);
             Logger::info("config set: " + string(optarg));
-            // config.load_file(string(optarg));
+            config.load_file(string(optarg));
             break;
 
         // training set.
         case 't':
             // string tdata = string(optarg);
             Logger::info("trainging set: " + string(optarg));
-            // training_set = string(optarg);
+            training_set = string(optarg);
             break;
 
         default:
@@ -68,9 +68,10 @@ void process_args(int argc, char **argv)
 
 int main(int argc, char **argv)
 {
+    process_args(argc, argv);
     setup();
 
-    if (train("/Users/newuser/projects/rr_neruel/resources/training/training-set.0.json"))
+    if (train(training_set))
     {
 
         // Perform some predictions to finish off the testing.
