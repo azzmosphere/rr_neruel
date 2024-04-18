@@ -84,4 +84,5 @@ Uses Big Endian [Endianness] (https://en.wikipedia.org/wiki/Endianness) pairs, a
 
 # References
 
-[Simple MLP Backpropagation Artificial Neural Network in C++ (Step by Step)] (https://www.codeproject.com/Articles/1237026/Simple-MLP-Backpropagation-Artificial-Neural-Netwo)
+* [Simple MLP Backpropagation Artificial Neural Network in C++ (Step by Step)] (https://www.codeproject.com/Articles/1237026/Simple-MLP-Backpropagation-Artificial-Neural-Netwo)
+* [C++ neural networks from scratch – Pt 2. building an MLP](https://www.lyndonduong.com/mlp-build-cpp/)
