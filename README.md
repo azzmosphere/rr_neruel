@@ -81,3 +81,7 @@ Uses Big Endian [Endianness] (https://en.wikipedia.org/wiki/Endianness) pairs, a
 ```
 
 **ingress** structure can be looked upon as binary pairs, for instance the array ```{1,0,1,0,1,0}``` equates to ```1^0 + 1^0 + 1^0 ``` which resolves as ```1 + 2 + 4 = 7```,  and ```{1, 1, 1, 0, 0, 0}``` resolves as ```1^1 + 1^0 + 0^0``` wich resolves as ```0+2+0 = 2```
+
+# References
+
+[Simple MLP Backpropagation Artificial Neural Network in C++ (Step by Step)] (https://www.codeproject.com/Articles/1237026/Simple-MLP-Backpropagation-Artificial-Neural-Netwo)
