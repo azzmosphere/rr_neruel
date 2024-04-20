@@ -84,5 +84,8 @@ Uses Big Endian [Endianness] (https://en.wikipedia.org/wiki/Endianness) pairs, a
 
 # References
 
-* [Simple MLP Backpropagation Artificial Neural Network in C++ (Step by Step)] (https://www.codeproject.com/Articles/1237026/Simple-MLP-Backpropagation-Artificial-Neural-Netwo)
+* [Simple MLP Backpropagation Artificial Neural Network in C++ (Step by Step)](https://www.codeproject.com/Articles/1237026/Simple-MLP-Backpropagation-Artificial-Neural-Netwo)
 * [C++ neural networks from scratch – Pt 2. building an MLP](https://www.lyndonduong.com/mlp-build-cpp/)
+* [ML – Neural Network Implementation in C++ From Scratch](https://www.geeksforgeeks.org/ml-neural-network-implementation-in-c-from-scratch/)
+* [eigen3_cmake_module](https://github.com/ros2/eigen3_cmake_module)
+* [Using Eigen in CMake Projects](https://eigen.tuxfamily.org/dox/TopicCMakeGuide.html)

@@ -19,7 +19,10 @@ networks:
 
     # hidden layer(s)
     hidden:
-      layers: 4
+      layers: 1
+
+      # nodes will be deprecated, there will always be the same number of nodfes as input, plus one
+      # more for bias.
       nodes: 8
   
     # Output

@@ -1,9 +1,10 @@
 #include "nn.hpp"
+#include "configyaml.hpp"
 #include <getopt.h>
 
 const float NN_INITIAL_WEIGHT = 0.5;
 NN network;
-ConfigReader config;
+ConfigYamlReader config;
 string training_set;
 
 // Perform any network(s) configuration, inject config file,

@@ -2,13 +2,12 @@
  * Read YAML configuration and return variables that can be used to configure networks (etc) 
  */
 
-#ifndef CONFIGREADER_HPP
-#define CONFIGREADER_HPP
+#ifndef CONFIGR_HPP
+#define CONFIGR_HPP
+
+#include <string>
 
 #include "rrutils.hpp"
-#include "Logger.hpp"
-#include <string>
-#include "yaml-cpp/yaml.h"
 
 using namespace std;
 
@@ -28,8 +27,6 @@ class ConfigReader  {
         float nn_momentum(const string nid);
         float nn_inital_weight(const string nid);
 
-
-        void load_file(const string config);
     
     protected:
         unsigned int _hidden_layers = 0;
