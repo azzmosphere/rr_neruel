@@ -5,14 +5,14 @@
 #ifndef CONFIGREADER_HPP
 #define CONFIGREADER_HPP
 
-#include "FileReader.hpp"
+#include "rrutils.hpp"
 #include "Logger.hpp"
 #include <string>
 #include "yaml-cpp/yaml.h"
 
 using namespace std;
 
-class ConfigReader : public FileReader {
+class ConfigReader  {
 
     public:
         // given the nid get the hidden layers.

@@ -30,18 +30,18 @@
 // based on https://codingnest.com/generating-random-numbers-using-c-standard-library-the-problems/
 //
 // In theory this code should use the /dev/urandom or any other hardware set as the random number generator.
-float nn_random()
-{
-  // Truly random seed.
-  std::mt19937 rng(std::random_device{}());
+// float nn_random()
+// {
+//   // Truly random seed.
+//   std::mt19937 rng(std::random_device{}());
 
-  // Avoid constructing distribution all the time
-  std::uniform_int_distribution<> dist(0, 100);
+//   // Avoid constructing distribution all the time
+//   std::uniform_int_distribution<> dist(0, 100);
 
-  float r = float(dist(rng)) / 100.0f;
+//   float r = float(dist(rng)) / 100.0f;
 
-  return r;
-}
+//   return r;
+// }
 
 
 void NN::setup(string nid, ConfigReader config)
