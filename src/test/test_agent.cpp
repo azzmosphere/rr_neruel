@@ -60,7 +60,7 @@ public:
     }
 };
 
-int main()
+void test_create_topology() 
 {
     ObjectUnderTest agent1;
     MockConfig config;
@@ -78,6 +78,11 @@ int main()
 
     Logger::info("hidden layer num of neurons:" + to_string(agent1.getTopology().at(2)));
     assert(agent1.getTopology().at(2) == 4);
+}
 
+int main()
+{
+
+    test_create_topology();
     return 0;
 }

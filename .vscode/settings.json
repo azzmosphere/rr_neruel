@@ -90,6 +90,7 @@
         "filesystem": "cpp",
         "hash_map": "cpp",
         "regex": "cpp",
-        "alignedvector3": "cpp"
+        "alignedvector3": "cpp",
+        "*.inc": "cpp"
     }
 }

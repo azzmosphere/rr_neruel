@@ -46,12 +46,5 @@ static inline float nn_random()
   return r;
 }
 
-static inline float sigmoid(float x) {
-  return 1.0f / (1 + exp(-x));
-}
-
-static inline float d_sigmoid(float x){
-  return (x * (1 - x));
-}
 
 #endif

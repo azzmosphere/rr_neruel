@@ -7,6 +7,13 @@
 
 #include "agent.hpp"
 
+float sigmoid(float x) {
+  return 1.0f / (1 + exp(-x));
+}
+
+float d_sigmoid(float x){
+  return (x * (1 - x));
+}
 
 /**
  * Creates the tapology that will be used to configure agent.
@@ -90,7 +97,21 @@ void Agent::setup(string nid, ConfigReader *config)
 }
 
 
-void forward_propagate(RowVector &input)
+// matmul
+// apply_function
+Matrix Agent::forward_propagate(Matrix &x)
 {
-    
+    // assert(get<0>(x.shape) == units_per_layer[0] && get<1>(x.shape));
+
+    _activations[0] = x;
+    Matrix prev(x);
+     for (int i = 0; i < _units_per_layer.size() - 1; ++i) {
+        Matrix y = _weight_matrices[i] * prev;
+        y = y + _bias_vectors[i];
+        y.unaryExpr(&sigmoid);
+        _activations[i+1] = y;
+        prev = y;
+     }
+
+    return prev;
 }
