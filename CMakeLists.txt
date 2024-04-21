@@ -66,3 +66,31 @@ target_link_libraries(rr-neruel PUBLIC Eigen3::Eigen)  # Add eigen
 include_directories(${json_SOURCE_DIR}/include)
 include_directories(${YAML_CPP_SOURCE_DIR}/include)
 include_directories( EIGEN3_INCLUDE_DIR )
+
+
+add_library(agent_test_code STATIC 
+  src/main/config.cpp
+  src/main/config.hpp
+  src/main/agent.cpp
+  src/main/agent.hpp
+)
+add_executable(agent_test src/test/test_agent.cpp)
+
+target_link_libraries(agent_test_code PRIVATE nlohmann_json::nlohmann_json)
+target_link_libraries(agent_test_code PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
+target_link_libraries(agent_test_code PUBLIC Eigen3::Eigen)
+target_link_libraries(
+  agent_test agent_test_code
+)
+
+enable_testing()
+
+include_directories(${json_SOURCE_DIR}/include)
+include_directories(${YAML_CPP_SOURCE_DIR}/include)
+include_directories( EIGEN3_INCLUDE_DIR )
+include_directories(src/main)
+
+add_test(
+  NAME agent_test
+  COMMAND $<TARGET_FILE:agent_test>
+)

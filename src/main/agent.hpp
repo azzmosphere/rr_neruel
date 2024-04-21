@@ -18,17 +18,21 @@
 typedef Eigen::MatrixXf Matrix;
 typedef Eigen::RowVectorXf RowVector;
 
-class Agent {
+using namespace std;
+
+class Agent
+{
 
 public:
     void setup(string nid, ConfigReader conf);
-    void forward_propagate(RowVector& input);
-    void backward_propagate(RowVector& output);
+    void forward_propagate(RowVector &input);
+    void backward_propagate(RowVector &output);
     void train(TrainingSet tset);
 
 protected:
-    float compute_activations_err(RowVector& input, float err);
+    float compute_activations_err(RowVector &input, float err);
     float update_weights();
+    void  create_topology();
 
 private:
     size_t _output_nodes_sz;
@@ -41,9 +45,14 @@ private:
     float _learning_rate; // sometimes referred to as epsilon
     float _momentum;
 
-    vector<RowVector*> _change_weights; // AKA cache
-    vector<Matrix*>    _weights;
-    vector<RowVector*> _deltas;
-    vector<RowVector*> _layers;
+    // vector<RowVector*> _change_weights; // AKA cache
+    // vector<Matrix*>    _weights;
+    // vector<RowVector*> _deltas;
+    // vector<RowVector*> _layers;
+
+    vector<size_t> _units_per_layer;
+    vector<Matrix> _bias_vectors;
+    vector<Matrix> _weight_matrices;
+    vector<Matrix> _activations;
 };
 #endif
