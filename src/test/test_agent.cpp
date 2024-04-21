@@ -1,6 +1,8 @@
 #include "config.hpp"
 #include "agent.hpp"
 
+typedef Eigen::MatrixXf Matrix;
+
 // Hard code some values,
 /*
   - id: "network0"
@@ -60,7 +62,7 @@ public:
     }
 };
 
-void test_create_topology() 
+void test_create_topology()
 {
     ObjectUnderTest agent1;
     MockConfig config;
@@ -80,9 +82,24 @@ void test_create_topology()
     assert(agent1.getTopology().at(2) == 4);
 }
 
+void test_forward_propagation()
+{
+    ObjectUnderTest agent1;
+    MockConfig config;
+
+    agent1.setup("nid0", &config);
+
+    Matrix x(7, 1);
+
+    // input variable
+    x << 1, 1, 1, 1, 1, 1, 0;
+    agent1.forward_propagate(x);
+}
+
 int main()
 {
 
     test_create_topology();
+    test_forward_propagation();
     return 0;
 }
