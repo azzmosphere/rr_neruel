@@ -87,6 +87,8 @@
         "valarray": "cpp",
         "format": "cpp",
         "ranges": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "hash_map": "cpp",
+        "regex": "cpp"
     }
 }

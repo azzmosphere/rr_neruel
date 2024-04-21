@@ -66,36 +66,3 @@ target_link_libraries(rr-neruel PUBLIC Eigen3::Eigen)  # Add eigen
 include_directories(${json_SOURCE_DIR}/include)
 include_directories(${YAML_CPP_SOURCE_DIR}/include)
 include_directories( EIGEN3_INCLUDE_DIR )
-#
-# Something is breaking in the test class,  and really don't like the way this works anyway,  it is using ctest straight,  really want to use something like
-# catch2,  but was failing on OSX with ARM64 for some reason :(.
-# testing build
-# add_library(nn STATIC 
-#   src/main/ConfigReader.cpp
-#   src/main/ConfigReader.hpp     
-#   src/main/FileReader.hpp
-#   src/main/Layer.hpp 
-#   src/main/Logger.hpp
-#   src/main/nn.cpp
-#   src/main/nn.hpp
-#   src/main/TrainingSet.hpp
-#   src/main/TrainingSet.cpp
-# )
-
-# add_executable(nn_test_code src/test/test_nn.cpp)
-# include_directories(nn_test_code src/main)
-
-# target_link_libraries(nn PRIVATE 
-#   nlohmann_json::nlohmann_json
-#   PUBLIC yaml-cpp::yaml-cpp
-# )
-# target_link_libraries(
-#   nn_test_code nn
-# )
-
-# enable_testing()
-
-# add_test(
-#   NAME nn_test_code
-#   COMMAND $<TARGET_FILE:nn_test_code>
-# )
