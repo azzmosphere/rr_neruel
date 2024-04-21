@@ -24,7 +24,7 @@ class Agent
 {
 
 public:
-    void setup(string nid, ConfigReader conf);
+    void setup(string nid, ConfigReader *conf);
     void forward_propagate(RowVector &input);
     void backward_propagate(RowVector &output);
     void train(TrainingSet tset);
@@ -33,6 +33,8 @@ protected:
     float compute_activations_err(RowVector &input, float err);
     float update_weights();
     void  create_topology();
+
+    vector<size_t> _units_per_layer;
 
 private:
     size_t _output_nodes_sz;
@@ -50,7 +52,6 @@ private:
     // vector<RowVector*> _deltas;
     // vector<RowVector*> _layers;
 
-    vector<size_t> _units_per_layer;
     vector<Matrix> _bias_vectors;
     vector<Matrix> _weight_matrices;
     vector<Matrix> _activations;
