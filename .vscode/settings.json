@@ -91,6 +91,8 @@
         "hash_map": "cpp",
         "regex": "cpp",
         "alignedvector3": "cpp",
-        "*.inc": "cpp"
+        "*.inc": "cpp",
+        "core": "cpp",
+        "eigen": "cpp"
     }
 }

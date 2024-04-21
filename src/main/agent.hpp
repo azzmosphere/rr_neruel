@@ -26,7 +26,7 @@ class Agent
 public:
     void   setup(string nid, ConfigReader *conf);
     Matrix forward_propagate(Matrix &input);
-    void backward_propagate(RowVector &output);
+    void backward_propagate(Matrix &target);
     void train(TrainingSet tset);
 
 protected:
