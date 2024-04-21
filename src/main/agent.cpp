@@ -25,6 +25,30 @@
      _units_per_layer.push_back(_output_nodes_sz);
 }
 
+
+
+Matrix randn(size_t rows, size_t cols) {
+    Matrix m(rows, cols);
+
+    std::random_device rd{};
+    std::mt19937 gen{rd()};
+
+    // init Gaussian distr. w/ N(mean=0, stdev=1/sqrt(numel))
+    float n = float(m.size());
+    float stdev{1 / sqrt(n)};
+    std::normal_distribution<float> d{0, stdev};
+
+        // fill each element w/ draw from distribution
+    for (size_t r = 0; r < m.rows(); ++r) {
+      for (int c = 0; c < m.cols(); ++c) {
+        m(r, c) = d(gen);
+      }
+    }
+
+    return m;
+}
+
+
 /********************************************************
  * setup method.
  *
@@ -55,12 +79,18 @@ void Agent::setup(string nid, ConfigReader *config)
         size_t out_channels{_units_per_layer[i+1]};
 
         // initialize to random Gaussian
-        // auto W = lynalg::mtx<T>::randn(out_channels, in_channels);
-        // weight_matrices.push_back(W);
+        auto W = randn(out_channels, in_channels);
+        _weight_matrices.push_back(W);
 
-        // auto b = lynalg::mtx<T>::randn(out_channels, 1);
-        // bias_vectors.push_back(b);
+        auto b = randn(out_channels, 1);
+        _bias_vectors.push_back(b);
 
-        // activations.resize(units_per_layer.size());
+        _activations.resize(_units_per_layer.size());
     }
+}
+
+
+void forward_propagate(RowVector &input)
+{
+    
 }

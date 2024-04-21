@@ -89,6 +89,7 @@
         "ranges": "cpp",
         "filesystem": "cpp",
         "hash_map": "cpp",
-        "regex": "cpp"
+        "regex": "cpp",
+        "alignedvector3": "cpp"
     }
 }
