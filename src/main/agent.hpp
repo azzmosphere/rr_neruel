@@ -49,9 +49,9 @@ private:
 
     // vector<RowVector*> _change_weights; // AKA cache
     // vector<Matrix*>    _weights;
-    // vector<RowVector*> _deltas;
-    // vector<RowVector*> _layers;
 
+    // vector<RowVector*> _layers;
+    vector<RowVector*> _deltas;
     vector<Matrix> _bias_vectors;
     vector<Matrix> _weight_matrices;
     vector<Matrix> _activations;

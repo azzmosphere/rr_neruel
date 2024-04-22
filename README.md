@@ -89,3 +89,4 @@ Uses Big Endian [Endianness] (https://en.wikipedia.org/wiki/Endianness) pairs, a
 * [ML – Neural Network Implementation in C++ From Scratch](https://www.geeksforgeeks.org/ml-neural-network-implementation-in-c-from-scratch/)
 * [eigen3_cmake_module](https://github.com/ros2/eigen3_cmake_module)
 * [Using Eigen in CMake Projects](https://eigen.tuxfamily.org/dox/TopicCMakeGuide.html)
+* [A Step by Step Backpropagation Example](https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/)

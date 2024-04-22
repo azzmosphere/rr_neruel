@@ -96,10 +96,28 @@ void test_forward_propagation()
     agent1.forward_propagate(x);
 }
 
+void test_backward_propagation() 
+{
+    ObjectUnderTest agent1;
+    MockConfig config;
+
+    Matrix x(7, 1);
+    Matrix y(4, 1);
+
+    x << 1, 1, 1, 1, 1, 1, 0;
+    y << 0, 0, 0, 0;
+
+    agent1.setup("nid0", &config);
+    agent1.forward_propagate(x);
+    agent1.backward_propagate(y);
+}
+
+
 int main()
 {
 
     test_create_topology();
     test_forward_propagation();
+    test_backward_propagation();
     return 0;
 }

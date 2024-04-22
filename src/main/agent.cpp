@@ -17,6 +17,8 @@ float d_sigmoid(float x)
     return (x * (1 - x));
 }
 
+
+
 /**
  * Creates the tapology that will be used to configure agent.
  */
@@ -120,22 +122,31 @@ Matrix Agent::forward_propagate(Matrix &x)
     return prev;
 }
 
+
+/**
+ * Delta is bias vector I think? 
+ */
 void Agent::backward_propagate(Matrix &target)
 {
     Logger::info("Backpropagate errors to hidden layer(s)");
 
-    auto y = target;
-    auto y_hat = _activations.back();
-    auto error = (target - y_hat);
+    // Matrix y = target;
+    // Matrix y_hat = _activations.back();
+
+    // // DEBUG CODE.
+    // // END CODE
+
+    // compute total error which is accum(target) - accum(output)
+    // float error = (target.colwise().sum().sum() - _layers.back().colwise().sum().sum());
 
     // backprop the error from output to input and step the weights
     for (int i = _weight_matrices.size() - 1; i >= 0; --i)
     {
         // calculating errors for previous layer
-        // auto Wt = _weight_matrices[i];
+        auto Wt = _weight_matrices[i];
 
-        // // Delta is mean to be a matrix but I can see if defined anywhere, nor do I
-        // // know how it is accessed in htis context.
+        // Delta is mean to be a matrix but I can see if defined anywhere, nor do I
+        // know how it is accessed in this context.
         // auto prev_errors = Wt * _delta;
 
         // // apply derivative of function evaluated at activations
