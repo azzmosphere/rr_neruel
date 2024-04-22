@@ -73,6 +73,8 @@ add_library(agent_test_code STATIC
   src/main/config.hpp
   src/main/agent.cpp
   src/main/agent.hpp
+  src/main/rr_nn.cpp
+  src/main/rr_nn.hpp
 )
 
 

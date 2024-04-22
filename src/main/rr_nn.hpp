@@ -11,31 +11,35 @@
 #include <Eigen/Core>
 #include <Eigen/Eigen>
 
+#include "Logger.hpp"
+
 
 typedef Eigen::MatrixXf Matrix;
 typedef Eigen::RowVectorXf RowVector;
 
-class RrNn {
+using namespace std;
 
-/*
- *  creates a NN made up 
- *
- *  weights topology = {{{.15, .2}, {.25, .3}}, {{.4,.45},{.5,.55}}}
- *  biases           = {.35, .6}
- */
-void setUp(Matrix weights, RowVector biases);
+class RrNn {
+public:
+    /*
+    *  creates a NN made up 
+    *
+    *  weights topology = {{{.15, .2}, {.25, .3}}, {{.4,.45},{.5,.55}}}
+    *  biases           = {.35, .6}
+    */
+    void setup(vector<Matrix> weights, RowVector biases, vector<uint16_t> topology);
 
 private:
 
  // hidden layer(s), and output
  // contains the activation values.  
-vector<RowVector> _neurons; 
+vector<RowVector*> _neurons; 
 
  // all connecting weights
-vector<Matrix>    _weights; 
+vector<Matrix*>    _weights; 
 
  // The BIAS layer.
-RowVector         _biases;  
+RowVector         *_biases;  
 
 };
 

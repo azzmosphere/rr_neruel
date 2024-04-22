@@ -6,6 +6,7 @@
     "configurations": [
 
 
+
         {
             "name": "(lldb) Launch",
             "type": "cppdbg",
@@ -26,6 +27,18 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/agent_test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
+            "name": "(lldb) NN Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/rr_nn_test",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
