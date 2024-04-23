@@ -45,15 +45,23 @@ int main()
 
 
     // Network topology
-    topology.resize(2);
+    topology.clear();
     topology.push_back(2);
     topology.push_back(2);
 
     nn.setup(weights, biases, topology);
 
     vector<float> input;
-    input.resize(2);
+    input.clear();
     input.push_back(.05); 
     input.push_back(.1);
-    nn.forward_propagate(input, 0);
+    vector<float> result = nn.forward_propagate(input, 0);
+
+    Logger::info("stop here:" + to_string(result.at(0)));
+    Logger::info("stop here:" + to_string(result.at(1)));
+
+    result = nn.forward_propagate(result, 1);
+    Logger::info("stop here:" + to_string(result.at(0)));
+    Logger::info("stop here:" + to_string(result.at(1)));
+
 }

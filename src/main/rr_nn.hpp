@@ -24,16 +24,16 @@ public:
     void setup(vector<Matrix*> weights, RowVector biases, vector<size_t> topology);
     vector<float> predict(vector<float> input);
 
-    RowVector forward_propagate(vector<float> input, size_t l);
+    vector<float> forward_propagate(vector<float> input, size_t l);
 
 private:
 
     // hidden layer(s), and output
     // contains the activation values.  
-    Matrix            _neurons;   // AKA activations
-    RowVector         _biases;    // The BIAS layer.
-    vector<Matrix*>   _weights;   // all connecting weights
-    vector<size_t>    _topology;  // contains size of each layer.
+    Matrix          _neurons;   // AKA activations
+    vector<float>   _biases;    // The BIAS layer.
+    vector<Matrix*> _weights;   // all connecting weights
+    vector<size_t>  _topology;  // contains size of each layer.
 
 };
 
