@@ -21,25 +21,19 @@ using namespace std;
 
 class RrNn {
 public:
-    /*
-    *  creates a NN made up 
-    *
-    *  weights topology = {{{.15, .2}, {.25, .3}}, {{.4,.45},{.5,.55}}}
-    *  biases           = {.35, .6}
-    */
-    void setup(vector<Matrix> weights, RowVector biases, vector<uint16_t> topology);
+    void setup(vector<Matrix*> weights, RowVector biases, vector<size_t> topology);
+    vector<float> predict(vector<float> input);
+
+    RowVector forward_propagate(vector<float> input, size_t l);
 
 private:
 
- // hidden layer(s), and output
- // contains the activation values.  
-vector<RowVector*> _neurons; 
-
- // all connecting weights
-vector<Matrix*>    _weights; 
-
- // The BIAS layer.
-RowVector         *_biases;  
+    // hidden layer(s), and output
+    // contains the activation values.  
+    Matrix            _neurons;   // AKA activations
+    RowVector         _biases;    // The BIAS layer.
+    vector<Matrix*>   _weights;   // all connecting weights
+    vector<size_t>    _topology;  // contains size of each layer.
 
 };
 
