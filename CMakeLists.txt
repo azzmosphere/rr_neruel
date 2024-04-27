@@ -4,9 +4,6 @@ project(
   VERSION 1.0
   LANGUAGES CXX)
 
-# Cross compile flags for Raspberry Pi.  
-# CMAKE_CXX_FLAGS       -arch armv6
-
 include(FetchContent)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz)
 FetchContent_MakeAvailable(json)
@@ -62,6 +59,13 @@ add_executable(rr-neruel ${SOURCES})
 target_link_libraries(rr-neruel PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(rr-neruel PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
 target_link_libraries(rr-neruel PUBLIC Eigen3::Eigen)  # Add eigen 
+# target_compile_options(rr-neruel PUBLIC    --target=arm-linux-gnueabihf 
+#   --sysroot=build/sysroot/sysroot 
+#   -isysroot=build/sysroot/sysroot 
+#   -isystem=build/sysroot/sysroot/usr/include/c++/12 
+#   -isystem=build/sysroot/usr/include/aarch64-linux-gnu/c++/12 
+#   -Lbuild/sysroot/lib/gcc/aarch64-linux-gnu 
+#   -Bbuild/sysroot/lib/gcc/aarch64-linux-gnu)
 
 include_directories(${json_SOURCE_DIR}/include)
 include_directories(${YAML_CPP_SOURCE_DIR}/include)
@@ -110,3 +114,13 @@ add_test(
   NAME rr_nn_test
   COMMAND $<TARGET_FILE:rr_nn_test>
 )
+
+
+# Allow cross compile to raspberry pi  - assuming we are using OSX,  on ARM arch! Otherwise use brew install
+# to download cross compilter tools.
+# rsync -rzLR --safe-links \
+# aaron@192.168.1.14:/usr/lib/aarch64-linux-gnu
+# aaron@192.168.1.14:/usr/lib/gcc/aarch64-linux-gnu
+#	aaron@192.168.1.14:/usr/include \
+# aaron@192.168.1.14:/lib/aarch64-linux-gnu/
+# build/sysroot/ 

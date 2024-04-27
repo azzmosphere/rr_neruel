@@ -5,6 +5,7 @@ float _sigmoid(float x)
     return 1.0f / (1 + exp(-x));
 }
 
+// computes the delta rule.
 float _d_sigmoid(float x)
 {
     return (x * (1 - x));
@@ -36,6 +37,7 @@ void RrNn::setup(vector<Matrix *> weights, RowVector biases, vector<size_t> topo
     i = *max_element(topology.begin(), topology.end());
 
     _neurons.resize(topology.size(), i);
+    _deltas.resize(topology.size(), i);
     _topology.clear();
     for (auto &i : topology)
     {
@@ -46,31 +48,13 @@ void RrNn::setup(vector<Matrix *> weights, RowVector biases, vector<size_t> topo
     Logger::info("_topology[0] = " + to_string(_topology[0]));
 }
 
-// void NN::layer_activation(
-//   Layer &layer,
-//   vector<float> &ingress,
-//   vector<vector<float>> &weights,
-//   const int in_node_sz,
-//   const int node_sz)
-// {
-//   for (int i = 0; i < node_sz; i++)
-//   {
-//     float accum = weights[in_node_sz][i];
-//     for (int j = 0; j < in_node_sz; j++)
-//     {
-//       accum += ingress[j] * weights[j][i];
-//     }
-//     layer._nodes[i] = 1.0 / (1.0 + exp(-accum));
-//   }
-// }
-
 /***********************************************************************************************
  * input comming in,
  * which layer position.
  * net_{h1} = w_1 * i_1 + w_2 * i_2 + b_1 * 1
  *
  ***********************************************************************************************/
-vector<float> RrNn::forward_propagate(vector<float> ingress, size_t l)
+vector<float> RrNn::forward_propagate(vector<float> ingress, const size_t l)
 {
     size_t node_sz = _topology.at(l);
     size_t in_node_sz = (l == 0) ? ingress.size() : _topology.at(l - 1);
@@ -88,6 +72,22 @@ vector<float> RrNn::forward_propagate(vector<float> ingress, size_t l)
         vec.push_back(_neurons(l, i));
     }
     return vec;
+}
+
+/***********************************************************************************************
+ * expected result is an ideal state,  actual is the state returned.
+ * 
+ * Expected can be considered a reward,  and the actual is how far the agent is from achieving
+ * that reward.  With the actual being the state genertated as a result of the actions.
+ ***********************************************************************************************/
+float RrNn::compute_error(vector<float> expected, vector<float> actual)
+{
+    for (size_t i = 0; i < actual.size(); i++)
+    {
+        _deltas[i] = (expected[i] - actual[i]) * actual[i] * (1.0 - actual[i]);
+        _error += 0.5 * (expected[i] - actual[i]) * (expected[i] - actual[i]);
+    }
+    return _error;
 }
 
 vector<float> RrNn::predict(vector<float> input)
