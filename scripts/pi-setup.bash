@@ -1,11 +1,22 @@
 #! /usr/bin/env bash
 
+# setup cross compile tools and headers for raspberry pi
+
+USERNAME=${1#aaron}
+IP=${$2#192.168.1.14}
+
+brew install arm-linux-gnueabihf-binutils
+brew tap osx-cross/arm
+brew install arm-gcc-bin
+brew install llvm
+
+
 PI_TARGET=${HOME}/projects/targets/pi
 mkdir -p  ${PI_TARGET}
-rsync -rzLR --safe-links  aaron@192.168.1.14:/usr/lib/aarch64-linux-gnu  ${PI_TARGET}
-rsync -rzLR --safe-links  aaron@192.168.1.14:/usr/lib/gcc/aarch64-linux-gnu ${PI_TARGET}
-rsync -rzLR --safe-links  aaron@192.168.1.14:/usr/include ${PI_TARGET}
-rsync -rzLR --safe-links aaron@192.168.1.14:/lib/aarch64-linux-gnu/  ${PI_TARGET} 
+rsync -rzLR --safe-links  ${USERNAME}@${$IP}:/usr/lib/aarch64-linux-gnu  ${PI_TARGET}
+rsync -rzLR --safe-links  ${USERNAME}@${IP}:/usr/lib/gcc/aarch64-linux-gnu ${PI_TARGET}
+rsync -rzLR --safe-links  ${USERNAME}@${IP}:/usr/include ${PI_TARGET}
+rsync -rzLR --safe-links ${USERNAME}@${IP}:/lib/aarch64-linux-gnu/  ${PI_TARGET} 
 
 
 # /opt/homebrew/opt/llvm/bin/clang++ \
