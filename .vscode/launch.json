@@ -4,6 +4,9 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
+
+
         {
             "name": "(lldb) Launch",
             "type": "cppdbg",
@@ -20,10 +23,22 @@
             "MIMode": "lldb"
         },
         {
-            "name": "(lldb) Test NN",
+            "name": "(lldb) Agent Test",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/nn_test_code",
+            "program": "${workspaceFolder}/build/agent_test",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb"
+        },
+        {
+            "name": "(lldb) NN Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/rr_nn_test",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
