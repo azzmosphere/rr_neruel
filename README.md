@@ -5,12 +5,23 @@ NN designed to operate on robot that use Raspberry Pi 4.
 
 ## Development
 
+Closest I've got to cross compiling for now is to run the following commands on the Raspberry 4 board.
+
+
 ```
 cmake -S . -B build
 cmake --build build
 cmake --build build -t test
+```
+You will need to use some apt-get commands to get this to work
 
+```
+sudo apt-get install cmake
+```
 
+The next attempt will be along these lines:
+
+```
 # Cross compile for Pi
 ./scrtps/pi-setup.bash
 cd build 
