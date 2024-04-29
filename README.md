@@ -29,6 +29,12 @@ cmake -DCMAKE_TOOLCHAIN_FILE=../raspberry-pi.cmake ..
 
 ```
 
+# GIT HUB
+
+```
+gh pr create -a @me -f 
+```
+
 ## Testing
 
 ```
@@ -120,3 +126,5 @@ ssh-copy-id -i ~/.ssh/id_rsa aaron@192.168.1.14
 * [relearn](https://alexge233.github.io/relearn/)
 * [Cross compiling C/C++ from macOS](https://medium.com/@haraldfernengel/cross-compiling-c-c-from-macos-to-raspberry-pi-in-2-easy-steps-23f391a8c63)
 * [Cross Compiling With CMake](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Cross%20Compiling%20With%20CMake.html)
+* [Deep Q-Learning Tutorial: minDQN](https://towardsdatascience.com/deep-q-learning-tutorial-mindqn-2a4c855abffc)
+* [Reinforcement Learning](https://www.baeldung.com/cs/reinforcement-learning-neural-network)

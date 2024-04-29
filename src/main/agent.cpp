@@ -1,3 +1,5 @@
+// TODO: Depricate this
+
 /**
  * Implementation of Machine Learning, Artifical Neruel Network agent.
  *

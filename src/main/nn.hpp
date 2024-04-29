@@ -3,6 +3,7 @@
  * perform a specitic task.
  **************************************************************************/
 
+// TODO: Depreicate this
 #ifndef nn_hpp
 #define nn_hpp
 
