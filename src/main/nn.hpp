@@ -1,4 +1,5 @@
 /**************************************************************************
+ * TODO: deprecate replace with rr_nn
  * Each neruel network can be considered an agent, they can be changed to 
  * perform a specitic task.
  **************************************************************************/

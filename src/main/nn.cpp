@@ -1,4 +1,5 @@
 /**
+ * TODO: Depericate (replace with rr_nn)
  * Code to control the neural network.
  */
 
