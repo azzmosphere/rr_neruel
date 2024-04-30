@@ -16,7 +16,7 @@ using namespace std;
 
 class Attribute {
     private:
-       int8_t   _oid;    // mapping variable for the observation.
+       int8_t _oid;    // mapping variable for the observation.
        string _name;   // human readable name of the observation.
        float  _value;  // value.
 };
