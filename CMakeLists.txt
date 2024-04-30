@@ -63,16 +63,7 @@ file(GLOB SOURCES src/main/common/*.cpp)
 
 # rr-agent code.
 add_subdirectory(src/main/rr-agent)
-# file(GLOB RR_AGENT_SOURCES src/main/rr-agent/*.cpp src/main/rr-agent/*.hpp)
-# add_executable(rr-agent ${SOURCES} ${RR_AGENT_SOURCES})
-# target_link_libraries(rr-agent PRIVATE nlohmann_json::nlohmann_json)
-# target_link_libraries(rr-agent PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
-# target_link_libraries(rr-agent PUBLIC Eigen3::Eigen)  # Add eigen 
-
-
-# rr-environment code.
-# file(GLOB RR_ENVIRONMENT_SOURCES src/main/rr-environment/*.cpp src/main/rr-environment/*.hpp)
-# add_executable(rr-environment ${SOURCES} ${RR_AGENT_SOURCES})
+add_subdirectory(src/main/rr-environment)
 
 enable_testing()
 
