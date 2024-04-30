@@ -16,7 +16,7 @@
 #include <string>
 #include "Layer.hpp"
 #include "Logger.hpp"
-#include "TrainingSet.hpp"
+#include "rr-agent/TrainingSet.hpp"
 #include "config.hpp"
 
 using namespace std;

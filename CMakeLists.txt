@@ -50,25 +50,30 @@ message(CHECK_PASS "fetched")
 
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
- 
-
-
+ # Common files, for all programs
 file(GLOB SOURCES src/main/*.cpp src/main/*.hpp)
 
-add_executable(rr-neruel ${SOURCES})
-target_link_libraries(rr-neruel PRIVATE nlohmann_json::nlohmann_json)
-target_link_libraries(rr-neruel PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
-target_link_libraries(rr-neruel PUBLIC Eigen3::Eigen)  # Add eigen 
+# rr-agent code.
+file(GLOB RR_AGENT_SOURCES src/main/rr-agent/*.cpp src/main/rr-agent/*.hpp)
+add_executable(rr-agent ${SOURCES} ${RR_AGENT_SOURCES})
+target_link_libraries(rr-agent PRIVATE nlohmann_json::nlohmann_json)
+target_link_libraries(rr-agent PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
+target_link_libraries(rr-agent PUBLIC Eigen3::Eigen)  # Add eigen 
+
+
 
 include_directories(${json_SOURCE_DIR}/include)
 include_directories(${YAML_CPP_SOURCE_DIR}/include)
 include_directories( EIGEN3_INCLUDE_DIR )
 
+
+enable_testing()
+
 add_library(agent_test_code STATIC 
   src/main/config.cpp
   src/main/config.hpp
-  src/main/rr_nn.cpp
-  src/main/rr_nn.hpp
+  src/main/rr-agent/rr_nn.cpp
+  src/main/rr-agent/rr_nn.hpp
 )
 
 
@@ -82,14 +87,10 @@ target_link_libraries(
   rr_nn_test agent_test_code
 )
 
-
-enable_testing()
-
 include_directories(${json_SOURCE_DIR}/include)
 include_directories(${YAML_CPP_SOURCE_DIR}/include)
 include_directories( EIGEN3_INCLUDE_DIR )
 include_directories(src/main)
-
 
 add_test(
   NAME rr_nn_test
