@@ -4,6 +4,9 @@
 #
 # Attempts to solve XOR problem,  extremly simple test
 
+environment:
+  port: 8080
+
 networks:
   # Network ID
   - id: "network0"

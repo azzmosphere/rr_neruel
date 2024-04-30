@@ -1,9 +1,10 @@
-#include "nn.hpp"
+// #include "nn.hpp"
 #include "configyaml.hpp"
+#include "TrainingSet.hpp"
 #include <getopt.h>
 
 const float NN_INITIAL_WEIGHT = 0.5;
-NN network;
+// NN network;
 ConfigYamlReader config;
 string training_set;
 
@@ -11,9 +12,9 @@ string training_set;
 // add MPIO
 void setup()
 {
-    network.setup("nid0", config);
-    network.initialize_hidden();
-    network.initialize_output();
+    // network.setup("nid0", config);
+    // network.initialize_hidden();
+    // network.initialize_output();
 }
 
 // Need to get a file format going for training sets.  Training should happen, here for each network.
@@ -21,7 +22,8 @@ bool train(const string tset_file)
 {
     TrainingSet tset;
     tset.deserialize(tset_file);
-    return network.train(tset);
+    // return network.train(tset);
+    return true;
 }
 
 void process_args(int argc, char **argv)
@@ -77,12 +79,12 @@ int main(int argc, char **argv)
 
         // Perform some predictions to finish off the testing.
         vector<float> ingress = {1, 1, 1, 0, 0, 0, 0};
-        network.predict(ingress);
+        // network.predict(ingress);
 
-        for (int i = 0; i < network._output_nodes_sz; i++)
-        {
-            Logger::info("col " + to_string(i) + ": " + to_string(network._output._nodes.at(i)));
-        }
+        // for (int i = 0; i < network._output_nodes_sz; i++)
+        // {
+        //     Logger::info("col " + to_string(i) + ": " + to_string(network._output._nodes.at(i)));
+        // }
     }
     else
     {

@@ -4,6 +4,7 @@ project(
   VERSION 1.0
   LANGUAGES CXX)
 
+
 include(FetchContent)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz)
 FetchContent_MakeAvailable(json)
@@ -43,6 +44,8 @@ set(EIGEN_BUILD_TESTING OFF)
 set(EIGEN_MPL2_ONLY ON)
 set(EIGEN_BUILD_PKGCONFIG OFF)
 set(EIGEN_BUILD_DOC OFF)
+
+set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/src/main/include)
 FetchContent_MakeAvailable(Eigen)
 
 list(POP_BACK CMAKE_MESSAGE_INDENT)
@@ -50,28 +53,31 @@ message(CHECK_PASS "fetched")
 
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 
- # Common files, for all programs
-file(GLOB SOURCES src/main/*.cpp src/main/*.hpp)
-
-# rr-agent code.
-file(GLOB RR_AGENT_SOURCES src/main/rr-agent/*.cpp src/main/rr-agent/*.hpp)
-add_executable(rr-agent ${SOURCES} ${RR_AGENT_SOURCES})
-target_link_libraries(rr-agent PRIVATE nlohmann_json::nlohmann_json)
-target_link_libraries(rr-agent PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
-target_link_libraries(rr-agent PUBLIC Eigen3::Eigen)  # Add eigen 
-
-
-
 include_directories(${json_SOURCE_DIR}/include)
 include_directories(${YAML_CPP_SOURCE_DIR}/include)
 include_directories( EIGEN3_INCLUDE_DIR )
+include_directories( ${INCLUDE_DIR} )
 
+ # Common files, for all programs
+file(GLOB SOURCES src/main/common/*.cpp)
+
+# rr-agent code.
+add_subdirectory(src/main/rr-agent)
+# file(GLOB RR_AGENT_SOURCES src/main/rr-agent/*.cpp src/main/rr-agent/*.hpp)
+# add_executable(rr-agent ${SOURCES} ${RR_AGENT_SOURCES})
+# target_link_libraries(rr-agent PRIVATE nlohmann_json::nlohmann_json)
+# target_link_libraries(rr-agent PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
+# target_link_libraries(rr-agent PUBLIC Eigen3::Eigen)  # Add eigen 
+
+
+# rr-environment code.
+# file(GLOB RR_ENVIRONMENT_SOURCES src/main/rr-environment/*.cpp src/main/rr-environment/*.hpp)
+# add_executable(rr-environment ${SOURCES} ${RR_AGENT_SOURCES})
 
 enable_testing()
 
 add_library(agent_test_code STATIC 
-  src/main/config.cpp
-  src/main/config.hpp
+  ${SOURCES}
   src/main/rr-agent/rr_nn.cpp
   src/main/rr-agent/rr_nn.hpp
 )
