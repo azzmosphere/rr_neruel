@@ -11,11 +11,12 @@
 #define RR_CONTROLLER_HPP
 
 #include <nlohmann/json.hpp>
+#include "event.hpp"
 
 
 using json = nlohmann::json;
 class RrController {
-    json execute(string request);
+    Event execute(Event request);
 };
 
 #endif

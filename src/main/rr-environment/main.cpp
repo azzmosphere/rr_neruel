@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <signal.h>
 #include <limits>
+#include <string>
 #include "Logger.hpp"
 
 // These will be turned into configuration options
@@ -18,57 +19,40 @@
 
 using namespace std;
 
-int exit_main = EXIT_SUCCESS;
+using namespace std; 
+  
+int main() 
+{ 
+    // creating socket 
+    int serverSocket = socket(AF_INET, SOCK_STREAM, 0); 
+  
+    // specifying the address 
+    sockaddr_in serverAddress; 
+    serverAddress.sin_family = AF_INET; 
+    serverAddress.sin_port = htons(8080); 
+    serverAddress.sin_addr.s_addr = INADDR_ANY; 
+  
+    // binding socket. 
+    bind(serverSocket, (struct sockaddr*)&serverAddress, 
+         sizeof(serverAddress)); 
+  
+    // listening to the assigned socket 
+    listen(serverSocket, 5); 
+  
+    // accepting connection request 
+    int clientSocket 
+        = accept(serverSocket, nullptr, nullptr); 
+  
+    // recieving data 
+    char buffer[1024] = { 0 }; 
+    recv(clientSocket, buffer, sizeof(buffer), 0); 
 
-void signal_callback_handler(int signum)
-{
-    Logger::info("caught signal " + to_string(signum));
-    exit_main = signum;
-}
-
-int main()
-{
-
-    signal(SIGINT, signal_callback_handler);
-
-    Logger::info("creating socket");
-    int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
-
-    // specifying the address
-    Logger::info("configuring socket");
-    sockaddr_in serverAddress;
-    serverAddress.sin_family = AF_INET;
-    serverAddress.sin_port = htons(IN_PORT);
-    serverAddress.sin_addr.s_addr = INADDR_ANY;
-
-    // binding socket.
-    bind(serverSocket, (struct sockaddr *)&serverAddress,
-         sizeof(serverAddress));
-
-    // listening to the assigned socket
-    listen(serverSocket, BACKLOG_CONN);
-
-    // accepting connection request
-    int clientSocket = accept(serverSocket, nullptr, nullptr);
-
-    // recieving data
-    char buffer[sizeof(SIZE_MAX)] = {0};
-
-    while (exit_main == 0)
-    {
-        try
-        {
-            recv(clientSocket, buffer, sizeof(buffer), 0);
-            cout << "Message from client: " << buffer << endl;
-        }
-        catch (int ex)
-        {
-            Logger::error("exception caught with id:" + to_string(ex));
-        }
-    }
-
-    // closing the socket.
-    close(serverSocket);
-
-    return 0;
+    cout << "Message from client: " << buffer << endl; 
+    string m =  "Message from client: " + string(buffer) + "\n";
+    send(clientSocket, m.c_str(), m.size(), 0);
+  
+    // closing the socket. 
+    close(serverSocket); 
+  
+    return 0; 
 }
