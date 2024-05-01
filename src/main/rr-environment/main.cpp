@@ -16,20 +16,29 @@
 // These will be turned into configuration options
 #define BACKLOG_CONN 5
 #define IN_PORT 8080
+#define BUFFSZ  8192
+
+static int serverSocket;
 
 using namespace std;
 
-using namespace std;
+void _exit() 
+{
+    // closing the socket.
+    close(serverSocket);
+}
 
 int main()
 {
+    atexit(_exit);
+
     // creating socket
-    int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
+    serverSocket = socket(AF_INET, SOCK_STREAM, PF_UNSPEC);
 
     // specifying the address
     sockaddr_in serverAddress;
     serverAddress.sin_family = AF_INET;
-    serverAddress.sin_port = htons(8080);
+    serverAddress.sin_port = htons(IN_PORT);
     serverAddress.sin_addr.s_addr = INADDR_ANY;
 
     // binding socket.
@@ -37,10 +46,10 @@ int main()
          sizeof(serverAddress));
 
     // listening to the assigned socket
-    listen(serverSocket, 5);
+    listen(serverSocket, BACKLOG_CONN);
 
     // recieving data
-    char buffer[1024] = {0};
+    char buffer[BUFFSZ] = {0};
 
     while (1)
     {
@@ -52,9 +61,6 @@ int main()
         send(clientSocket, m.c_str(), m.size(), 0);
         close(clientSocket);
     }
-
-    // closing the socket.
-    close(serverSocket);
-
+    
     return 0;
 }
