@@ -5,7 +5,6 @@
  * REFERECNE: https://www.geeksforgeeks.org/socket-programming-in-cpp/
  ****************************************************************************/
 
-
 #include "Logger.hpp"
 
 #include "ipserver.hpp"
@@ -13,10 +12,9 @@
 
 #define IN_PORT 8080
 
-
 static IpServer *ipserver;
 
-void _exit() 
+void _exit()
 {
     Logger::info("closing connection");
     ipserver->~IpServer();
@@ -39,12 +37,19 @@ int main()
     Logger::info("creating exit functions");
     ipserver = &server;
     atexit(_exit);
-    signal(SIGINT , _sig2);
+    signal(SIGINT, _sig2);
 
     while (true)
     {
-        Event event = server.receive();
-        server.send(controller.executeRequest(event));
+        try
+        {
+            Event event = server.receive();
+            server.send(controller.executeRequest(event));
+        }
+        catch (exception ex)
+        {
+            Logger::error("error occurred in request " + string(ex.what()));
+        }
     }
-    return 0;
+    return EXIT_SUCCESS;
 }

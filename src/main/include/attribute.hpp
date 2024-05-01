@@ -15,6 +15,37 @@
 using namespace std;
 
 class Attribute {
+
+    public:
+        void setOid(int8_t oid) 
+        {
+            _oid = oid;
+        }
+
+        void setName(string name) 
+        {
+            _name = name;
+        }
+
+        void setValue(float value) 
+        {
+            _value = value;
+        }
+
+        int8_t getOid()
+        {
+            return _oid;
+        }
+
+        string getName()
+        {
+            return _name;
+        }
+
+        float getValue()
+        {
+            return _value;
+        }
     private:
        int8_t _oid;    // mapping variable for the observation.
        string _name;   // human readable name of the observation.

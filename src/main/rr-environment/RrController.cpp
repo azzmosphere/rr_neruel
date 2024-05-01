@@ -1,3 +1,7 @@
+/***
+ * interact with hardware do stuff!
+*/
+
 #include "RrController.hpp"
 
 
