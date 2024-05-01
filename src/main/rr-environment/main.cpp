@@ -20,8 +20,8 @@ using namespace std;
 
 int exit_main = EXIT_SUCCESS;
 
-
-void signal_callback_handler(int signum) {
+void signal_callback_handler(int signum)
+{
     Logger::info("caught signal " + to_string(signum));
     exit_main = signum;
 }
@@ -56,9 +56,15 @@ int main()
 
     while (exit_main == 0)
     {
-        recv(clientSocket, buffer, sizeof(buffer), 0);
-        cout << "Message from client: " << buffer
-             << endl;
+        try
+        {
+            recv(clientSocket, buffer, sizeof(buffer), 0);
+            cout << "Message from client: " << buffer << endl;
+        }
+        catch (int ex)
+        {
+            Logger::error("exception caught with id:" + to_string(ex));
+        }
     }
 
     // closing the socket.
