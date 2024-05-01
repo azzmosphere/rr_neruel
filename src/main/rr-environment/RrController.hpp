@@ -10,13 +10,11 @@
 #ifndef RR_CONTROLLER_HPP
 #define RR_CONTROLLER_HPP
 
-#include <nlohmann/json.hpp>
 #include "event.hpp"
 
-
-using json = nlohmann::json;
 class RrController {
-    Event execute(Event request);
+    public: 
+        Event executeRequest(Event request);
 };
 
 #endif
