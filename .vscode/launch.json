@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "(lldb) Launch agent",
             "type": "cppdbg",
@@ -32,6 +33,21 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "lldb"
+        },
+        {
+            "name": "(gdb) Launch env remote",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/src/main/rr-environment/rr-environment",
+            "args": [
+                "-c ${workspaceFolder}/resources/etc/config.yaml"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb"
         },
         {
             "name": "(lldb) NN Test",
