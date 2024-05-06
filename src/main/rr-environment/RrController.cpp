@@ -11,7 +11,6 @@
 #define in2 5
 #define enA 6
 
-//SeeedL298 l298;
 
 RrController::RrController() {
     Logger::info("initlising wiringPi");

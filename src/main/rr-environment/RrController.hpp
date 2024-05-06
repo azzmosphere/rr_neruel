@@ -11,12 +11,19 @@
 #define RR_CONTROLLER_HPP
 
 #include <wiringPi.h>
+#include <vector>
 
 #include "event.hpp"
 #include "Logger.hpp"
 #include "components/L298Motor.hpp"
+#include "ActionFactory.hpp"
+
+using namespace std;
 
 class RrController {
+    private:
+        ActionFactory actionFactory;
+
     public: 
         RrController();
         Event executeRequest(Event request);
