@@ -10,10 +10,15 @@
 #ifndef RR_CONTROLLER_HPP
 #define RR_CONTROLLER_HPP
 
+#include <wiringPi.h>
+
 #include "event.hpp"
+#include "Logger.hpp"
+#include "components/L298Motor.hpp"
 
 class RrController {
     public: 
+        RrController();
         Event executeRequest(Event request);
 };
 

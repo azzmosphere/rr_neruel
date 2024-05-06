@@ -8,15 +8,18 @@ NN designed to operate on robot that use Raspberry Pi 4.
 Closest I've got to cross compiling for now is to run the following commands on the Raspberry 4 board.
 
 
-```
-cmake -S . -B build
-cmake --build build
-cmake --build build -t test
-```
 You will need to use some apt-get commands to get this to work
 
 ```
 sudo apt-get install cmake
+sudo apt-get install ./wiringpi_3.2_arm64.deb
+sudo apt-get install libeigen3-dev 
+
+for p in 11 13 15;do gpio mode  ${p} pwm; done
+
+ cmake -S . -B build
+cmake --build build
+cmake --build build -t test
 ```
 
 The next attempt will be along these lines:
@@ -28,6 +31,12 @@ cd build
 cmake -DCMAKE_TOOLCHAIN_FILE=../raspberry-pi.cmake ..
 
 ```
+
+# Raspbery Pi (Pin Layout)
+
+
+
+refernce from [Simple Guide to the Raspberry Pi GPIO Header](https://www.raspberrypi-spy.co.uk/2012/06/simple-guide-to-the-rpi-gpio-header-and-pins/)
 
 # GIT HUB
 
@@ -128,3 +137,4 @@ ssh-copy-id -i ~/.ssh/id_rsa aaron@192.168.1.14
 * [Cross Compiling With CMake](https://cmake.org/cmake/help/book/mastering-cmake/chapter/Cross%20Compiling%20With%20CMake.html)
 * [Deep Q-Learning Tutorial: minDQN](https://towardsdatascience.com/deep-q-learning-tutorial-mindqn-2a4c855abffc)
 * [Reinforcement Learning](https://www.baeldung.com/cs/reinforcement-learning-neural-network)
+* [GPIO Programming: Using the sysfs Interface](https://www.ics.com/blog/gpio-programming-using-sysfs-interface)

@@ -26,12 +26,19 @@ include_directories(${YAML_CPP_SOURCE_DIR}/include)
 include_directories( EIGEN3_INCLUDE_DIR )
 include_directories(${INCLUDE_DIR})
 
-file(GLOB RR_ENV_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
+file(
+    GLOB RR_ENV_SOURCES 
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/components/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/components/*.hpp
+)
 add_executable(rr-environment ${SOURCES} ${RR_ENV_SOURCES})
 target_link_libraries(rr-environment PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(rr-environment PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
 target_link_libraries(rr-environment PUBLIC Eigen3::Eigen)
-# target_link_libraries(rr-environment PUBLIC ${wiringPi_LIB})
+target_link_libraries(rr-environment PUBLIC /usr/lib/libwiringPi.so)
+
 
 
 
