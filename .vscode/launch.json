@@ -42,6 +42,7 @@
             "args": [
                 "-c ${workspaceFolder}/resources/etc/config.yaml"
             ],
+            "sudo": true,
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],

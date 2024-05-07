@@ -33,6 +33,6 @@ ActionFactory::ActionFactory()
 
 void ActionFactory::performAction(int8_t _oid, float value)
 {
-    Logger::info("peroforming action: " + _actions.at(_oid)->name());
+    Logger::info("performing action: " + _actions.at(_oid)->name());
     _actions.at(_oid)->executeAction(value);
 }

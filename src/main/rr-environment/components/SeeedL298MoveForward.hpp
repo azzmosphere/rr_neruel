@@ -3,6 +3,7 @@
 
 #include "../Action.hpp"
 #include "L298Motor.hpp"
+#include "Logger.hpp"
 
 class SeedL298MoveForwardAction : public Action
 {

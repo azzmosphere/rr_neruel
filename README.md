@@ -17,7 +17,7 @@ sudo apt-get install libeigen3-dev
 
 for p in 11 13 15;do gpio mode  ${p} pwm; done
 
- cmake -S . -B build
+cmake -S . -B build
 cmake --build build
 cmake --build build -t test
 ```

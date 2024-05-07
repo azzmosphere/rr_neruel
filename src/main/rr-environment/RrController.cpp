@@ -19,7 +19,13 @@ Event RrController::executeRequest(Event event)
         vector<Attribute> actions =  event.getActions();
         for (Attribute& a : actions)
         {
-            _actionFactory.performAction(a.getOid(), a.getValue());
+            try {
+                _actionFactory.performAction(a.getOid(), a.getValue());
+            } 
+            catch( const exception& e)  
+            { 
+                Logger::error("could complete action " + a.getName());
+            }
         }
         
     }
