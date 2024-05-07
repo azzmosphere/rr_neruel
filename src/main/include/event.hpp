@@ -4,6 +4,8 @@
 #include <vector>
 #include "attribute.hpp"
 
+#define OP_ACTIONS 0x0001
+
 class Event {
     public:
         void setOpCode(uint8_t opcode)
@@ -31,6 +33,10 @@ class Event {
             return _opcode;
         }
 
+        vector<Attribute> getActions() 
+        {
+            return _actions;
+        }
 
     private:
         uint8_t           _opcode;   // operation code 

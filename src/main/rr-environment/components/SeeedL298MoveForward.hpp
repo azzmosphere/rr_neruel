@@ -1,18 +1,20 @@
 #ifndef SEEEDL298MOVEFORWARD_HPP
 #define SEEEDL298MOVEFORWARD_HPP
 
-#include "SeeedL298.hpp"
 #include "../Action.hpp"
+#include "L298Motor.hpp"
 
 class SeedL298MoveForwardAction : public Action
 {
     private:
-        SeeedL298 seeedL298;
+        L298Motor* _l298Motor;
 
     public:
-        void executeAction(float value)
-        {
-        }
+        SeedL298MoveForwardAction(L298Motor* l298Motor);
+
+        void executeAction(float value) override;
+
+        string name() override;
 };
 
 #endif

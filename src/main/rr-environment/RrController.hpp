@@ -22,7 +22,7 @@ using namespace std;
 
 class RrController {
     private:
-        ActionFactory actionFactory;
+        ActionFactory _actionFactory;
 
     public: 
         RrController();

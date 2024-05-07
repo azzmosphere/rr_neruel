@@ -5,30 +5,24 @@
 #include "RrController.hpp"
 
 
-// TODO: this needs to go into a config file,  but for now
-// purple wire
-#define in1 4
-#define in2 5
-#define enA 6
+#define DELAY_MS 100
 
+RrController::RrController() {}
 
-RrController::RrController() {
-    Logger::info("initlising wiringPi");
-    wiringPiSetup();
-
-    // TODO: initilise this Actions.
-    Logger::info("initializing motor A");
-    L298Motor motorA;
-
-    motorA.setEn(enA);
-    motorA.setIn1(in1);
-    motorA.setIn2(in2);
-    motorA.setup();
-
-}
-
+// create a delay configurable before actioning the requests.
 Event RrController::executeRequest(Event event)
 {
     
+    // execute actions
+    if (event.getOpCode() & OP_ACTIONS) 
+    {
+        vector<Attribute> actions =  event.getActions();
+        for (Attribute& a : actions)
+        {
+            _actionFactory.performAction(a.getOid(), a.getValue());
+        }
+        
+    }
+    delayMicroseconds(DELAY_MS);
     return event;
 }

@@ -10,11 +10,14 @@
 #include <map>
 
 #include "Action.hpp"
+#include "Logger.hpp"
+#include "components/L298Motor.hpp"
+#include "components/SeeedL298MoveForward.hpp"
 
 using namespace std;
 class ActionFactory {
     private:
-        map<int8_t, Action> actions;
+        map<int8_t, Action*> _actions;
 
     public:
         ActionFactory();

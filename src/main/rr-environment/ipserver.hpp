@@ -19,8 +19,6 @@
 #define IP_BUFFSZ  8192
 #define IP_BACKLOG_CONN 5
 
-#define OP_ACTIONS 0x0001
-
 using json = nlohmann::json;
 class IpServer {
     private:
