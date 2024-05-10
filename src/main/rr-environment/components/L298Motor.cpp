@@ -20,12 +20,23 @@ void L298Motor::driveWheels(uint32_t in1, uint32_t in2, uint32_t in3,  uint32_t 
     digitalWrite(_in1, in1);
     digitalWrite(_in2, in2);
     
-    pwmWrite(_en, ena);
+    softPwmWrite(_en, ena);
 }
 
 void L298Motor::setup()
 {
+
+    setEn(ENA);
+    setIn1(IN1);
+    setIn2(IN2);
+
     pinMode(_in1, OUTPUT);
     pinMode(_in2, OUTPUT);
-    pinMode(_en, PWM_OUTPUT);
+    pinMode(_en, OUTPUT);
+    softPwmCreate(_en, 0, 100);
+}
+
+void L298Motor::teardown()
+{
+    softPwmStop(_en);
 }

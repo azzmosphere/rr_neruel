@@ -15,6 +15,7 @@
 #include <nlohmann/json.hpp>
 #include "Logger.hpp"
 #include "event.hpp"
+#include "rrutils.hpp"
 
 #define IP_BUFFSZ  8192
 #define IP_BACKLOG_CONN 5

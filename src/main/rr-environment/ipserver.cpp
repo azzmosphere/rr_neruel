@@ -45,7 +45,7 @@ Event IpServer::receive()
    _client_socket = accept(_server_socket, nullptr, nullptr);
    ::recv(_client_socket, _buffer, sizeof(_buffer), 0);
 
-   Logger::info("received " + string(_buffer));
+   Logger::info("received " + trim(string(_buffer)));
    _data = json::parse(_buffer);
    Event e;
 

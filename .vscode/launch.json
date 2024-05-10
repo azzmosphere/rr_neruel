@@ -24,7 +24,7 @@
             "name": "(lldb) Launch env",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/src/main/rr-environment/rr-environment",
+            "program": "sudo ${workspaceFolder}/build/src/main/rr-environment/rr-environment",
             "args": [
                 "-c ${workspaceFolder}/resources/etc/config.yaml"
             ],
@@ -42,13 +42,12 @@
             "args": [
                 "-c ${workspaceFolder}/resources/etc/config.yaml"
             ],
-            "sudo": true,
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb"
+            "miDebuggerPath": "/home/aaron/bin/gdbscript"
         },
         {
             "name": "(lldb) NN Test",

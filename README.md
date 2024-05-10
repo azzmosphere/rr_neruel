@@ -138,3 +138,4 @@ ssh-copy-id -i ~/.ssh/id_rsa aaron@192.168.1.14
 * [Deep Q-Learning Tutorial: minDQN](https://towardsdatascience.com/deep-q-learning-tutorial-mindqn-2a4c855abffc)
 * [Reinforcement Learning](https://www.baeldung.com/cs/reinforcement-learning-neural-network)
 * [GPIO Programming: Using the sysfs Interface](https://www.ics.com/blog/gpio-programming-using-sysfs-interface)
+* [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html)

@@ -13,6 +13,8 @@
 #include "Logger.hpp"
 #include "components/L298Motor.hpp"
 #include "components/SeeedL298MoveForward.hpp"
+#include "components/SeeedL298Stop.hpp"
+#include "wiringiface.hpp"
 
 using namespace std;
 class ActionFactory {
