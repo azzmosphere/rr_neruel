@@ -17,8 +17,9 @@ void L298Motor::driveWheels(int in1, int in2, int in3,  int in4, int ena, int en
     digitalWrite(IN4, in4);
 
     // range is 0 to 1024
-    pwmWrite(ENA, (ena > MAX_PWM_VAL) ? MAX_PWM_VAL : ena);
-    pwmWrite(ENB, (enb > MAX_PWM_VAL) ? MAX_PWM_VAL : enb);
+
+    pwmWrite(ENA, ena);
+    pwmWrite(ENB, enb);
 }
 
 void L298Motor::setup()
