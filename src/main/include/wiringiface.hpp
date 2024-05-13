@@ -7,12 +7,15 @@
 #ifndef WIRINGIFACE_HPP
 #define WIRINGIFACE_HPP
 
+#include <wiringPi.h>
+// #include <softPwm.h>
+
 #define WPI_GPIO 0
 #define WPI_PI   1
 #define WPI_PYS  2
 
 // define the wiring setup to use. 
-#define WIRINGSETUP WPI_PYS
+#define WIRINGSETUP WPI_GPIO
 
 #if WIRINGSETUP == WPI_GPIO
 #define wiringSetup() wiringPiSetupGpio()

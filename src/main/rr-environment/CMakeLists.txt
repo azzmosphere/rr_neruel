@@ -41,10 +41,3 @@ target_link_libraries(rr-environment PUBLIC /usr/lib/libwiringPi.so)
 
 
 
-
-
-# if(NOT wiring-pi_POPULATED)
-#   message(STATUS "Fetching  wiring-pi...")
-#   FetchContent_Populate( wiring-pi)
-#   add_subdirectory(${wiring-pi_SOURCE_DIR} ${wiring-pi_BINARY_DIR})
-# endif()

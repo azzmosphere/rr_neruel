@@ -94,3 +94,5 @@ add_test(
   COMMAND $<TARGET_FILE:rr_nn_test>
 )
 
+add_executable(test_hbridge src/test/test_hbridge.cpp)
+target_link_libraries(test_hbridge PUBLIC /usr/lib/libwiringPi.so)

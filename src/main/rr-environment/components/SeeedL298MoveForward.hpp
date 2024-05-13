@@ -2,6 +2,7 @@
 #define SEEEDL298MOVEFORWARD_HPP
 
 #include "../Action.hpp"
+#include "wiringiface.hpp"
 #include "L298Motor.hpp"
 #include "Logger.hpp"
 

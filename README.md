@@ -20,7 +20,45 @@ for p in 11 13 15;do gpio mode  ${p} pwm; done
 cmake -S . -B build
 cmake --build build
 cmake --build build -t test
+
+
 ```
+
+determine boardcom numbering
+
+**in1
+```
+gpio -g write  23 1
+gpio -g blink 23
+```
+working
+
+
+**in2
+```
+gpio -g write  24 1
+gpio -g blink 24
+```
+
+not working
+
+**in3
+```
+aaron@ryderrobot:~ $ gpio -g write  5 1
+aaron@ryderrobot:~ $ gpio -g blink 5
+```
+working
+
+
+**in4
+```
+aaron@ryderrobot:~ $ gpio -g write  6 1
+aaron@ryderrobot:~ $ gpio -g blink 6
+```
+
+working
+
+
 
 The next attempt will be along these lines:
 
