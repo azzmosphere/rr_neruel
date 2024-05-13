@@ -20,10 +20,10 @@ ActionFactory::ActionFactory()
 
     motorA->setup();
 
-    SeedL298MoveForwardAction* actionMoveForward = new SeedL298MoveForwardAction(motorA);
+    MoveForwardAction* actionMoveForward = new MoveForwardAction(motorA);
     _actions.insert({1, actionMoveForward});
 
-    SeedL298StopAction *actionStop = new SeedL298StopAction(motorA);
+    StopAction *actionStop = new StopAction(motorA);
     _actions.insert({2, actionStop});
 
 }

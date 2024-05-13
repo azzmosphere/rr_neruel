@@ -5,13 +5,13 @@
 #include "L298Motor.hpp"
 #include "Logger.hpp"
 
-class SeedL298StopAction : public Action
+class StopAction : public Action
 {
     private:
         L298Motor* _l298Motor;
 
     public:
-        SeedL298StopAction(L298Motor* l298Motor);
+        StopAction(L298Motor* l298Motor);
 
         void executeAction(float value) override;
 
