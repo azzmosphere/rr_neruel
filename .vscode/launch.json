@@ -21,20 +21,6 @@
             "MIMode": "lldb"
         },
         {
-            "name": "(lldb) Launch env",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "sudo ${workspaceFolder}/build/src/main/rr-environment/rr-environment",
-            "args": [
-                "-c ${workspaceFolder}/resources/etc/config.yaml"
-            ],
-            "stopAtEntry": false,
-            "cwd": "${fileDirname}",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb"
-        },
-        {
             "name": "(gdb) Launch env remote",
             "type": "cppdbg",
             "request": "launch",

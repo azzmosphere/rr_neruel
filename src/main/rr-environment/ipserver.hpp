@@ -23,7 +23,6 @@
 using json = nlohmann::json;
 class IpServer {
     private:
-        char _buffer[IP_BUFFSZ] = {0};
         int _server_socket;
         int _client_socket;
         json _data;
