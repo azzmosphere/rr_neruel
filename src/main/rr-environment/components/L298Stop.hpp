@@ -1,15 +1,10 @@
 #ifndef SEEEDL298STOP_HPP
 #define SEEEDL298STOP_HPP
 
-#include "../Action.hpp"
-#include "L298Motor.hpp"
-#include "Logger.hpp"
+#include "L298.hpp"
 
-class StopAction : public Action
+class StopAction : public L298
 {
-    private:
-        L298Motor* _l298Motor;
-
     public:
         StopAction(L298Motor* l298Motor);
 

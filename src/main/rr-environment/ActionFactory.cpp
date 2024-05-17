@@ -14,16 +14,14 @@ ActionFactory::ActionFactory()
         throw "fatal error could not initialise wiring";
     }
 
-    // TODO: initilise this Actions.
     Logger::info("initializing motorA/B");
     L298Motor* motorA = new L298Motor();
     motorA->setup();
 
-    MoveForwardAction* actionMoveForward = new MoveForwardAction(motorA);
-    _actions.insert({1, actionMoveForward});
+    _actions.insert({1, new MoveForwardAction(motorA)});
+    _actions.insert({2, new StopAction(motorA)});
 
-    StopAction *actionStop = new StopAction(motorA);
-    _actions.insert({2, actionStop});
+
 
 }
 

@@ -1,16 +1,10 @@
 #ifndef SEEEDL298MOVEFORWARD_HPP
 #define SEEEDL298MOVEFORWARD_HPP
 
-#include "../Action.hpp"
-#include "wiringiface.hpp"
-#include "L298Motor.hpp"
-#include "Logger.hpp"
+#include "L298.hpp"
 
-class MoveForwardAction : public Action
+class MoveForwardAction : public L298
 {
-    private:
-        L298Motor* _l298Motor;
-
     public:
         MoveForwardAction(L298Motor* l298Motor);
 
