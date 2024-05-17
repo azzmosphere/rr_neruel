@@ -42,3 +42,8 @@ void L298Motor::teardown()
     pwmWrite(ENA, 0);
     pwmWrite(ENB, 0);
 }
+
+L298Motor::~L298Motor()
+{
+    teardown();
+}

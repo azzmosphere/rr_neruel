@@ -10,14 +10,13 @@ ActionFactory::ActionFactory()
 
     Logger::info("initlising wiringPi");
     if (wiringSetup() < 0) {
-        return;
+        Logger::error("fatal error could not initialise wiring");
+        throw "fatal error could not initialise wiring";
     }
 
     // TODO: initilise this Actions.
-    Logger::info("initializing motor A");
+    Logger::info("initializing motorA/B");
     L298Motor* motorA = new L298Motor();
-
-
     motorA->setup();
 
     MoveForwardAction* actionMoveForward = new MoveForwardAction(motorA);
@@ -31,6 +30,7 @@ ActionFactory::ActionFactory()
 
 void ActionFactory::performAction(int8_t _oid, float value)
 {
-    Logger::info("performing action: " + _actions.at(_oid)->name());
-    _actions.at(_oid)->executeAction(value);
+    Action *action = _actions.at(_oid);
+    Logger::info("performing action: " + action->name());
+    action->executeAction(value);
 }

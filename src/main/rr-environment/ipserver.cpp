@@ -63,7 +63,7 @@ Event IpServer::receive()
       _data = json::parse(buffer);
    } catch (exception e) {
       Logger::error("unable to deserialize json request ");
-      throw "unable to desialize json request ";
+      //throw "unable to desialize json request ";
    }
    Event e;
 
