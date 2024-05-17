@@ -1,7 +1,8 @@
+/*********************************************************************************************
+ * map to actions.
+ *********************************************************************************************/
+
 #include "ActionFactory.hpp"
-
-
-
 
 using namespace std;
 
@@ -20,9 +21,7 @@ ActionFactory::ActionFactory()
 
     _actions.insert({1, new MoveForwardAction(motorA)});
     _actions.insert({2, new StopAction(motorA)});
-
-
-
+    _actions.insert({3, new MoveLeftAction(motorA)});
 }
 
 

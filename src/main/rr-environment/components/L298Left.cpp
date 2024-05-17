@@ -15,7 +15,7 @@ void MoveLeftAction::executeAction(float value)
     _l298Motor->driveWheels(LOW, HIGH, HIGH, LOW, value, value);
 }
 
-string MoveForwardAction::name() 
+string MoveLeftAction::name() 
 {
     return "move left";
 }
