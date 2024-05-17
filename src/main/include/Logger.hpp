@@ -12,6 +12,10 @@ class Logger {
         static inline void info(string m) {
             cout << "INFO: " << m << endl;
         }
+
+        static inline void error(string m) {
+            cout << "ERROR: " << m << endl;
+        }
 };
 
 #endif

@@ -5,13 +5,11 @@
     "version": "0.2.0",
     "configurations": [
 
-
-
         {
-            "name": "(lldb) Launch",
+            "name": "(lldb) Launch agent",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/rr-neruel",
+            "program": "${workspaceFolder}/build/src/main/rr-agent/rr-agent",
             "args": [
                 "-t ${workspaceFolder}/resources/training/training-set.0.json",
                 "-c ${workspaceFolder}/resources/etc/config.yaml"
@@ -23,16 +21,19 @@
             "MIMode": "lldb"
         },
         {
-            "name": "(lldb) Agent Test",
+            "name": "(gdb) Launch env remote",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/agent_test",
-            "args": [],
+            "program": "${workspaceFolder}/build/src/main/rr-environment/rr-environment",
+            "args": [
+                "-c ${workspaceFolder}/resources/etc/config.yaml"
+            ],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
-            "MIMode": "lldb"
+            "MIMode": "gdb",
+            "miDebuggerPath": "/home/aaron/bin/gdbscript"
         },
         {
             "name": "(lldb) NN Test",

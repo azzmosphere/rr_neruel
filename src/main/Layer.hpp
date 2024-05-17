@@ -1,3 +1,5 @@
+//TODO: Deprecated
+
 #ifndef LAYER_HPP
 #define LAYER_HPP
 

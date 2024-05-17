@@ -1,7 +1,9 @@
 /**
+ * TODO: Depericate (replace with rr_nn)
  * Code to control the neural network.
  */
 
+// TODO: depreicate this
 #include "nn.hpp"
 
 //TODO: Remove these macros and replace with functions,  will need functions to process

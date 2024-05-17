@@ -1,8 +1,10 @@
 /**************************************************************************
+ * TODO: deprecate replace with rr_nn
  * Each neruel network can be considered an agent, they can be changed to 
  * perform a specitic task.
  **************************************************************************/
 
+// TODO: Depreicate this
 #ifndef nn_hpp
 #define nn_hpp
 
@@ -14,7 +16,7 @@
 #include <string>
 #include "Layer.hpp"
 #include "Logger.hpp"
-#include "TrainingSet.hpp"
+#include "rr-agent/TrainingSet.hpp"
 #include "config.hpp"
 
 using namespace std;
