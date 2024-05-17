@@ -1,0 +1,3 @@
+{ "op" : 1, "actions": [ { "oid": 1, "name": "moveforward", "value": 500 } ] }
+
+{ "op" : 1, "actions": [ { "oid": 2, "name": "stop", "value": 500 } ] }
