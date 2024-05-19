@@ -2,7 +2,7 @@
  * Instructs the engine to move forward.
  ************************************************************************************/
 
-#include "L298MoveForward.hpp"
+#include "components/L298MoveForward.hpp"
 
 using namespace std;
 

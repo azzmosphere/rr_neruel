@@ -1,4 +1,4 @@
-#include "L298Motor.hpp"
+#include "components/L298Motor.hpp"
 
 const int IN1 = GPIO_PIN23;
 const int IN2 = GPIO_PIN24;
