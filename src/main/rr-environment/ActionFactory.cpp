@@ -22,6 +22,7 @@ ActionFactory::ActionFactory()
     _actions.insert({1, new MoveForwardAction(motorA)});
     _actions.insert({2, new StopAction(motorA)});
     _actions.insert({3, new MoveLeftAction(motorA)});
+    _actions.insert({4, new MoveRighAction(motorA)});
 }
 
 
