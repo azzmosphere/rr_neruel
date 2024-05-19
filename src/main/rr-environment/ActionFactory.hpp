@@ -14,6 +14,8 @@
 #include "components/L298Motor.hpp"
 #include "components/L298MoveForward.hpp"
 #include "components/L298Stop.hpp"
+#include "components/L298Left.hpp"
+#include "components/L298Right.hpp"
 #include "wiringiface.hpp"
 
 using namespace std;

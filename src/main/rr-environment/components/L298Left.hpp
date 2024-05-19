@@ -1,12 +1,12 @@
-#ifndef SEEEDL298STOP_HPP
-#define SEEEDL298STOP_HPP
+#ifndef L298LEFT_HPP
+#define L298LEFT_HPP
 
 #include "L298.hpp"
 
-class StopAction : public L298
+class MoveLeftAction : public L298
 {
     public:
-        StopAction(L298Motor* l298Motor);
+        MoveLeftAction(L298Motor* l298Motor);
 
         void executeAction(float value) override;
 
