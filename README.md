@@ -18,6 +18,9 @@ sudo apt-get install libeigen3-dev
 cmake -S . -B build
 cmake --build build
 cmake --build build -t test
+cd build
+cpack --config CPackConfig.cmake
+cpack --config CPackSourceConfig.cmake
 
 
 ```
@@ -175,3 +178,11 @@ ssh-copy-id -i ~/.ssh/id_rsa aaron@192.168.1.14
 * [Reinforcement Learning](https://www.baeldung.com/cs/reinforcement-learning-neural-network)
 * [GPIO Programming: Using the sysfs Interface](https://www.ics.com/blog/gpio-programming-using-sysfs-interface)
 * [Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html)
+
+
+
+# Underwater Drone References:
+
+* [underwater-drone 3D printer model files](https://github.com/guidoschillaci/underwater-drone)
+* [Alternative FiFish model](https://www.printables.com/en/model/260372-propeller-protection-for-underwater-drone-fifish-v)
+* [DF Robot compatible frame](https://cults3d.com/en/3d-model/various/rahmen-fuer-unterwasser-drohne-chasing-dory-rov)

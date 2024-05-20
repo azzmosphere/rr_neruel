@@ -29,10 +29,8 @@ set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/src/main/rr-environment/include)
 
 file(
     GLOB RR_ENV_SOURCES 
-    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp 
-    ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/components/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/components/*.hpp
 )
 
 include_directories( ${INCLUDE_DIR} )
@@ -42,6 +40,4 @@ target_link_libraries(rr-environment PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(rr-environment PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
 target_link_libraries(rr-environment PUBLIC Eigen3::Eigen)
 target_link_libraries(rr-environment PUBLIC /usr/lib/libwiringPi.so)
-
-
 
