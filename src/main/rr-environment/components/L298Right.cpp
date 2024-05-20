@@ -2,7 +2,7 @@
  * Move Robot Righ.
  ************************************************************/
 
-#include "L298Right.hpp"
+#include "components/L298Right.hpp"
 
 MoveRighAction::MoveRighAction(L298Motor* l298Motor)
 {

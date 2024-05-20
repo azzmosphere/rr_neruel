@@ -18,7 +18,6 @@ FetchContent_Declare(
   GIT_TAG master # Can be a tag (yaml-cpp-x.x.x), a commit hash, or a branch name (master)
 )
 FetchContent_GetProperties(wiring-pi)
-# find_library(wiringPi_LIB wiringPi)
 
 find_package (Eigen3 3.3 REQUIRED NO_MODULE)
 include_directories(${json_SOURCE_DIR}/include)
@@ -26,18 +25,19 @@ include_directories(${YAML_CPP_SOURCE_DIR}/include)
 include_directories( EIGEN3_INCLUDE_DIR )
 include_directories(${INCLUDE_DIR})
 
+set(INCLUDE_DIR ${CMAKE_SOURCE_DIR}/src/main/rr-environment/include)
+
 file(
     GLOB RR_ENV_SOURCES 
-    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp 
-    ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/components/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/components/*.hpp
 )
+
+include_directories( ${INCLUDE_DIR} )
+
 add_executable(rr-environment ${SOURCES} ${RR_ENV_SOURCES})
 target_link_libraries(rr-environment PRIVATE nlohmann_json::nlohmann_json)
 target_link_libraries(rr-environment PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library
 target_link_libraries(rr-environment PUBLIC Eigen3::Eigen)
 target_link_libraries(rr-environment PUBLIC /usr/lib/libwiringPi.so)
-
-
 

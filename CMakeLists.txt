@@ -4,6 +4,15 @@ project(
   VERSION 1.0
   LANGUAGES CXX)
 
+set(CPACK_PACKAGE_CONTACT "azzmosphere@gmail.com")
+set(CPACK_GENERATOR "DEB")
+set(CPACK_DEBIAN_FILE_NAME DEB-DEFAULT)
+set(CPACK_DEBIAN_PACKAGE_VERSION 1.0.0)
+set(CPACK_DEBIAN_PACKAGE_RELEASE 1)
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Control System For Unmanned Vehicles")
+set(CPACK_DEBIAN_PACKAGE_HOMEPAGE "https://github.com/azzmosphere/rr_neruel")
+set(CPACK_DEBIAN_PACKAGE_DEPENDS "wiringpi, wiringpi (>= 3.2)")
+set(CPACK_PACKAGING_INSTALL_PREFIX "/opt/rrobot")
 
 include(FetchContent)
 FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.11.3/json.tar.xz)
@@ -96,3 +105,7 @@ add_test(
 
 add_executable(test_hbridge src/test/test_hbridge.cpp)
 target_link_libraries(test_hbridge PUBLIC /usr/lib/libwiringPi.so)
+
+install(TARGETS rr-environment RUNTIME DESTINATION bin)
+
+include(CPack)
