@@ -35,3 +35,6 @@ build/**
 CMakeCache.txt
 CMakeFiles/**
 _deps/**
+resources/schematic/ryderrobot/ryderrobot-backups/**
+**.lck
+**.swp
