@@ -35,3 +35,4 @@ build/**
 CMakeCache.txt
 CMakeFiles/**
 _deps/**
+**.FCBak
