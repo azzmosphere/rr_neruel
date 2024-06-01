@@ -186,3 +186,4 @@ ssh-copy-id -i ~/.ssh/id_rsa aaron@192.168.1.14
 * [underwater-drone 3D printer model files](https://github.com/guidoschillaci/underwater-drone)
 * [Alternative FiFish model](https://www.printables.com/en/model/260372-propeller-protection-for-underwater-drone-fifish-v)
 * [DF Robot compatible frame](https://cults3d.com/en/3d-model/various/rahmen-fuer-unterwasser-drohne-chasing-dory-rov)
+* [DF GPIO extension board](https://wiki.dfrobot.com/IO%20Expansion%20HAT%20for%20Raspberry%20Pi%20%20SKU%3A%20%20DFR0566)

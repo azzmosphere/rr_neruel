@@ -5,175 +5,6 @@
 	(uuid "4435ea64-70dc-4af2-aa93-7b514da00384")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Device:LED"
-			(pin_numbers hide)
-			(pin_names
-				(offset 1.016) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at 0 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "LED"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Light emitting diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "LED diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "LED* LED_SMD:* LED_THT:*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "LED_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -1.27) (xy -1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "LED_1_1"
-				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Device:R"
 			(pin_numbers hide)
 			(pin_names
@@ -495,46 +326,32 @@
 				)
 			)
 		)
-		(symbol "hc-sr04:HC-SR04"
+		(symbol "power:+5V"
+			(power)
+			(pin_numbers hide)
 			(pin_names
-				(offset 1.016)
-			)
+				(offset 0) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at -6.35 -7.62 0)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
 				(effects
 					(font
-						(size 1.524 1.524)
+						(size 1.27 1.27)
 					)
+					(hide yes)
 				)
 			)
-			(property "Value" "HC-SR04"
-				(at -2.54 7.62 0)
+			(property "Value" "+5V"
+				(at 0 3.556 0)
 				(effects
 					(font
-						(size 1.524 1.524)
+						(size 1.27 1.27)
 					)
 				)
 			)
 			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.524 1.524)
-					)
-				)
-			)
-			(property "Description" ""
 				(at 0 0 0)
 				(effects
 					(font
@@ -543,24 +360,76 @@
 					(hide yes)
 				)
 			)
-			(symbol "HC-SR04_0_1"
-				(rectangle
-					(start 0 6.35)
-					(end -7.62 -6.35)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+5V\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+5V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
 					(stroke
 						(width 0)
-						(type solid)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
 			)
-			(symbol "HC-SR04_1_1"
-				(pin input line
-					(at 5.08 3.81 180)
-					(length 5.08)
-					(name "VCC"
+			(symbol "+5V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -568,60 +437,6 @@
 						)
 					)
 					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 5.08 1.27 180)
-					(length 5.08)
-					(name "TRIG"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 5.08 -1.27 180)
-					(length 5.08)
-					(name "ECHO"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 5.08 -3.81 180)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -729,1364 +544,99 @@
 		)
 	)
 	(junction
-		(at 107.95 142.24)
+		(at 71.12 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "037bc279-382c-40eb-8c7e-7a28d4a205d2")
+		(uuid "c02d677b-d728-4afd-8409-c263aeb86021")
 	)
 	(junction
-		(at 86.36 152.4)
+		(at 71.12 78.74)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "099f256a-bd05-46e9-9329-d279f8b518cb")
+		(uuid "ea1e172c-e207-44ff-af4d-892cde33a54f")
 	)
-	(junction
-		(at 166.37 95.25)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0ae36ef0-b53b-46fa-bd92-dc282791e9db")
-	)
-	(junction
-		(at 27.94 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "138a5015-d991-4182-a674-c651abea43c3")
-	)
-	(junction
-		(at 39.37 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "1b864926-8d28-408b-a75c-b7fc69c9b49b")
-	)
-	(junction
-		(at 67.31 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2f200672-bfb2-4448-ab69-780fb1ec0a33")
-	)
-	(junction
-		(at 62.23 142.24)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "44cb5758-e4eb-4ca3-b01c-ac14902f63be")
-	)
-	(junction
-		(at 128.27 142.24)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4c43985f-6ee6-44fd-ae60-5f6b858dce33")
-	)
-	(junction
-		(at 115.57 93.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4d94ce06-0c36-4ce6-9f15-eb545afdff9b")
-	)
-	(junction
-		(at 139.7 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "67174b8e-ebd3-4de1-ba3d-e6f53100c4d4")
-	)
-	(junction
-		(at 62.23 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "878e7e18-1469-4910-9f57-576514e3fa95")
-	)
-	(junction
-		(at 111.76 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8e148adc-f722-4974-a050-f72ecb63cbb8")
-	)
-	(junction
-		(at 55.88 142.24)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a719ce6f-50d9-4906-94e3-ac44ee0c50e1")
-	)
-	(junction
-		(at 128.27 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ad0e0a0b-48ac-4c30-bcb6-172d29e6a43b")
-	)
-	(junction
-		(at 78.74 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "afb3c02b-571a-4ffe-a2c6-e18955c5b189")
-	)
-	(junction
-		(at 21.59 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b84719e3-06d3-48f3-b242-94332ca14f22")
-	)
-	(junction
-		(at 166.37 105.41)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c3da1b54-7d4e-42c7-bac4-4556972d511f")
-	)
-	(junction
-		(at 72.39 104.14)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e347b322-0eb7-4141-b5f6-b563ea5b3bac")
-	)
-	(junction
-		(at 111.76 111.76)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ecd94265-9cc1-4318-8ef1-5e75f0784cf1")
-	)
-	(junction
-		(at 72.39 93.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f283df6f-5dbc-407d-8c23-0f7910898879")
-	)
-	(junction
-		(at 158.75 152.4)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f7c72d0f-ed05-455b-b4b4-6ce01719b503")
-	)
-	(wire
-		(pts
-			(xy 21.59 152.4) (xy 27.94 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "01391529-c3fb-40e4-b90b-174701339c74")
-	)
-	(wire
-		(pts
-			(xy 115.57 92.71) (xy 115.57 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0188e912-2553-4515-9bb1-c87b732a9b02")
-	)
-	(wire
-		(pts
-			(xy 72.39 104.14) (xy 72.39 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0217ffd7-f3a4-4a66-b18a-ac7ad3cb0a51")
-	)
-	(wire
-		(pts
-			(xy 115.57 85.09) (xy 128.27 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "08c46486-3ea3-4108-a52b-7e3faeda5038")
-	)
-	(wire
-		(pts
-			(xy 111.76 111.76) (xy 161.29 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0e13ab04-e387-460d-b0d2-bdb9b1f2fb48")
-	)
-	(wire
-		(pts
-			(xy 115.57 129.54) (xy 102.87 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "10ebbb7d-cb65-490f-8753-2e19429383a1")
-	)
-	(wire
-		(pts
-			(xy 27.94 152.4) (xy 39.37 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1c3290b6-5587-452b-b623-d2b0ead4abdc")
-	)
-	(wire
-		(pts
-			(xy 106.68 93.98) (xy 115.57 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1de8cbe2-08f9-4073-919b-c25f9677aa34")
-	)
-	(wire
-		(pts
-			(xy 107.95 124.46) (xy 107.95 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1f99e640-38e6-4bb2-8d14-0aa2c6ed6a9d")
-	)
-	(wire
-		(pts
-			(xy 128.27 152.4) (xy 139.7 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "20bdfe5b-83b2-4d39-9cdc-f4e2b05c6db3")
-	)
-	(wire
-		(pts
-			(xy 21.59 121.92) (xy 21.59 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "21d009e3-232b-478c-9ccf-79628ad89c28")
-	)
-	(wire
-		(pts
-			(xy 59.69 93.98) (xy 72.39 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "22b91a1f-ae90-4620-be57-902348763383")
-	)
-	(wire
-		(pts
-			(xy 146.05 95.25) (xy 139.7 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "28222cb0-9526-4eb7-a8e0-4157e307c8c0")
-	)
-	(wire
-		(pts
-			(xy 111.76 152.4) (xy 128.27 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2a7f6836-f4f6-477a-a0d0-e8fca92dc475")
-	)
-	(wire
-		(pts
-			(xy 72.39 129.54) (xy 57.15 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2db6b71c-801e-44cf-8974-b3f8d5a1f5ed")
-	)
-	(wire
-		(pts
-			(xy 27.94 142.24) (xy 55.88 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3196033d-f96c-481a-b392-b425bd04e8fe")
-	)
-	(wire
-		(pts
-			(xy 39.37 93.98) (xy 52.07 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "379b5abe-997b-42db-8e1e-553466f3a1c6")
-	)
-	(wire
-		(pts
-			(xy 102.87 124.46) (xy 107.95 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "41121e3a-9c50-4b5a-989e-0756125d3899")
-	)
-	(wire
-		(pts
-			(xy 166.37 86.36) (xy 179.07 86.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "50a9c588-d3bc-4ebc-a3d6-4ddfafc7e2de")
-	)
-	(wire
-		(pts
-			(xy 21.59 154.94) (xy 21.59 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "50dbedee-2f46-4924-bb58-e956b3ff869e")
-	)
-	(wire
-		(pts
-			(xy 62.23 142.24) (xy 107.95 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "52e09fe3-d520-4dc3-9e18-858548163cc0")
-	)
-	(wire
-		(pts
-			(xy 115.57 93.98) (xy 115.57 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "53f766da-0a90-4337-b8f6-af5c26c580b8")
-	)
-	(wire
-		(pts
-			(xy 62.23 132.08) (xy 62.23 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "54479e65-378f-439d-a751-3a94c3926091")
-	)
-	(wire
-		(pts
-			(xy 55.88 142.24) (xy 55.88 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5495793b-2dad-4391-9071-b67839195de5")
-	)
-	(wire
-		(pts
-			(xy 139.7 152.4) (xy 158.75 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5551809c-d2de-4f53-b2dc-8ec081f7e93a")
-	)
-	(wire
-		(pts
-			(xy 128.27 142.24) (xy 128.27 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5b18dd51-0aa3-4a3c-9f98-7718dbcc22ce")
-	)
-	(wire
-		(pts
-			(xy 128.27 142.24) (xy 163.83 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5c12f630-e695-4f9f-adf1-4c2bb7fc5140")
-	)
-	(wire
-		(pts
-			(xy 111.76 132.08) (xy 111.76 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "68741070-3bf2-4c49-814a-9bf0a614bd41")
-	)
-	(wire
-		(pts
-			(xy 57.15 127) (xy 67.31 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6e46cd1c-62e0-4760-aba1-d4972b41711c")
-	)
-	(wire
-		(pts
-			(xy 72.39 102.87) (xy 72.39 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7050f71f-41e4-4995-b569-f433edb163cb")
-	)
-	(wire
-		(pts
-			(xy 163.83 124.46) (xy 163.83 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "737e2002-2cb8-4df4-82e0-b7fc4cbe34fe")
-	)
-	(wire
-		(pts
-			(xy 128.27 85.09) (xy 128.27 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "74545416-f262-4faf-bbb8-3596f204213b")
-	)
-	(wire
-		(pts
-			(xy 62.23 142.24) (xy 55.88 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7b0666dd-b997-465b-90f4-0945c6fb4705")
-	)
-	(wire
-		(pts
-			(xy 72.39 93.98) (xy 72.39 96.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "85ea4ccd-26eb-4913-ac02-eac5b2ea3fc2")
-	)
-	(wire
-		(pts
-			(xy 166.37 104.14) (xy 166.37 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "896e6c9e-7001-4330-aae4-99e7e51e90c8")
-	)
-	(wire
-		(pts
-			(xy 62.23 152.4) (xy 78.74 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8d862f6d-0e90-4423-b065-c5cc765bdb6a")
-	)
-	(wire
-		(pts
-			(xy 111.76 127) (xy 102.87 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8e1ffa6e-dd3c-443c-baf2-ce04801ee6d3")
-	)
-	(wire
-		(pts
-			(xy 39.37 93.98) (xy 39.37 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "900e3178-7ab1-46f4-a7e0-dc73606439a8")
-	)
-	(wire
-		(pts
-			(xy 139.7 95.25) (xy 139.7 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "95267117-6d74-411f-9a45-f586167d736a")
-	)
-	(wire
-		(pts
-			(xy 86.36 152.4) (xy 111.76 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9587d3eb-1eb9-42b0-a585-cd3360442dd3")
-	)
-	(wire
-		(pts
-			(xy 166.37 93.98) (xy 166.37 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "986d8fda-372d-49a3-88f8-4b188ea4c513")
-	)
-	(wire
-		(pts
-			(xy 39.37 152.4) (xy 62.23 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9cdc5d5f-b8e4-4829-907c-62538465bd1b")
-	)
-	(wire
-		(pts
-			(xy 72.39 92.71) (xy 72.39 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a9efb265-ec87-4011-8676-509ab473f666")
-	)
-	(wire
-		(pts
-			(xy 247.65 133.35) (xy 247.65 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "add86f8c-2d08-4a1c-b617-2d286514a9b7")
-	)
-	(wire
-		(pts
-			(xy 166.37 95.25) (xy 166.37 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ade6b05c-0480-4815-b253-56373c625cea")
-	)
-	(wire
-		(pts
-			(xy 62.23 142.24) (xy 62.23 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b04fc8a1-1e03-434a-8417-bb3acfddeba8")
-	)
-	(wire
-		(pts
-			(xy 158.75 124.46) (xy 163.83 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b33bc1f9-55bb-4a14-9a11-3cdf85ad5757")
-	)
-	(wire
-		(pts
-			(xy 128.27 142.24) (xy 107.95 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b442ce37-445d-45a7-b6cf-1913fcf110f7")
-	)
-	(wire
-		(pts
-			(xy 111.76 111.76) (xy 111.76 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b8c44095-d8ed-46cb-b1bc-da1b4156d096")
-	)
-	(wire
-		(pts
-			(xy 166.37 105.41) (xy 166.37 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ba116695-2643-4839-b7d4-aebe2984e28c")
-	)
-	(wire
-		(pts
-			(xy 99.06 93.98) (xy 86.36 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bd8f6095-ea63-4cf3-8167-4e7351c9dbaf")
-	)
-	(wire
-		(pts
-			(xy 67.31 111.76) (xy 67.31 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c004a129-9ba6-42e2-884f-2d2c3d506d82")
-	)
-	(wire
-		(pts
-			(xy 62.23 132.08) (xy 57.15 132.08)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c1e69598-053a-4218-9046-d88e3912ec50")
-	)
-	(wire
-		(pts
-			(xy 78.74 85.09) (xy 72.39 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c821f69d-5ee9-48f4-bd08-171e66b16005")
-	)
-	(wire
-		(pts
-			(xy 86.36 93.98) (xy 86.36 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca3bacf0-f1c8-4d54-a651-6ea8626b6686")
-	)
-	(wire
-		(pts
-			(xy 161.29 111.76) (xy 161.29 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cb013e32-43cd-499a-b14e-647b1f89f954")
-	)
-	(wire
-		(pts
-			(xy 153.67 95.25) (xy 166.37 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ceb9dcb5-fc36-4c86-b8fc-979fb9b83e8e")
-	)
-	(wire
-		(pts
-			(xy 21.59 111.76) (xy 67.31 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e1f2f5b7-1781-4e56-a965-a81415a998fa")
-	)
-	(wire
-		(pts
-			(xy 55.88 124.46) (xy 57.15 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e9210703-5cd7-4a41-95b2-e5b965606c15")
-	)
-	(wire
-		(pts
-			(xy 158.75 152.4) (xy 179.07 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ea8316a9-c858-4761-b4d8-580efd75f774")
-	)
-	(wire
-		(pts
-			(xy 179.07 86.36) (xy 179.07 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ed642dc0-bf62-4243-b078-c1b1d7f2737e")
-	)
-	(wire
-		(pts
-			(xy 158.75 129.54) (xy 166.37 129.54)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "edd40fa3-8d59-4252-a987-ca93950ae314")
-	)
 	(wire
 		(pts
-			(xy 67.31 111.76) (xy 111.76 111.76)
+			(xy 71.12 74.93) (xy 71.12 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ef17d61a-aa6b-4a57-a0b5-2c9f42e06a8e")
+		(uuid "29e90895-6389-4ae7-bdb0-49ca1b711326")
 	)
 	(wire
 		(pts
-			(xy 161.29 127) (xy 158.75 127)
+			(xy 82.55 78.74) (xy 82.55 104.14)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f7e5bbb6-8c90-4711-9a0d-79597f4b1dc0")
+		(uuid "3f896393-97be-4468-bcc0-5fbc92eae681")
 	)
 	(wire
 		(pts
-			(xy 102.87 132.08) (xy 111.76 132.08)
+			(xy 71.12 62.23) (xy 71.12 67.31)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f8879ac5-a051-404f-a3a8-69bc40e51eb2")
+		(uuid "5bfd10d5-a109-48b7-a331-d50ec0b09428")
 	)
 	(wire
 		(pts
-			(xy 78.74 85.09) (xy 78.74 152.4)
+			(xy 71.12 88.9) (xy 71.12 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f9840dee-0f56-4639-b846-f8f968bc70c6")
+		(uuid "7bfb3187-57b4-44f2-ad3d-8dd30f1cb6ff")
 	)
 	(wire
 		(pts
-			(xy 115.57 104.14) (xy 115.57 129.54)
+			(xy 71.12 113.03) (xy 71.12 111.76)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fa7ce1af-9f13-4421-a9b4-27bbcf562656")
+		(uuid "9a19be3b-e172-405f-930d-03129c7d7a46")
 	)
 	(wire
 		(pts
-			(xy 158.75 132.08) (xy 158.75 152.4)
+			(xy 71.12 78.74) (xy 82.55 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fde9ffc9-936d-407b-9e4a-1a65fc51b92a")
+		(uuid "c70de065-751a-4328-b9f2-dac53590cb90")
 	)
 	(wire
 		(pts
-			(xy 78.74 152.4) (xy 86.36 152.4)
+			(xy 71.12 78.74) (xy 71.12 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
-		)
-		(uuid "fe747213-ffab-47b9-8eeb-5faca5597c04")
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 72.39 88.9 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0584bf55-932e-45f7-a2f5-b1f9b05efeff")
-		(property "Reference" "R2"
-			(at 74.93 87.6299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "${SIM.PARAMS}"
-			(at 74.93 90.1699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 70.612 88.9 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 72.39 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 72.39 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "R"
-			(at 72.39 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "="
-			(at 72.39 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" "r=2000"
-			(at 72.39 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 72.39 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "389c3cb0-62d0-4636-b97b-8977404510a4")
-		)
-		(pin "2"
-			(uuid "b8d8d8f3-7386-4eee-8c5d-b7137f5e942a")
-		)
-		(instances
-			(project "ryderrobot"
-				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "R2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED")
-		(at 149.86 95.25 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "05ef7e8c-7f32-4485-b9f9-798d7c247920")
-		(property "Reference" "D3"
-			(at 148.2725 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED"
-			(at 148.2725 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 149.86 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 149.86 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode"
-			(at 149.86 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Library" "/Users/newuser/projects/rr_neruel/resources/schematic/components/led.mod"
-			(at 149.86 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Name" "LED"
-			(at 149.86 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "D"
-			(at 149.86 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=A 2=K"
-			(at 149.86 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "ab3dbce0-462c-42dc-ae27-835f91f855d3")
-		)
-		(pin "1"
-			(uuid "147e6756-3240-4ff8-b30b-0c2738dd0a3e")
-		)
-		(instances
-			(project "ryderrobot"
-				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "D3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Simulation_SPICE:VDC")
-		(at 27.94 147.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "07d768b0-345e-4de3-b766-c9249eedf77e")
-		(property "Reference" "V5"
-			(at 31.75 145.9201 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "5"
-			(at 31.75 148.4601 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 27.94 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
-			(at 27.94 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Voltage source, DC"
-			(at 27.94 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 27.94 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "DC"
-			(at 27.94 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "V"
-			(at 27.94 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "f40ed8d3-2f8d-494f-a96f-333790138f0b")
-		)
-		(pin "1"
-			(uuid "39c7ae51-72f5-403f-b5ea-ba33db8e562a")
-		)
-		(instances
-			(project "ryderrobot"
-				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "V5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hc-sr04:HC-SR04")
-		(at 97.79 128.27 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1d978a6b-732b-44ff-b170-36b1570ebe1b")
-		(property "Reference" "U2"
-			(at 93.98 116.84 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Value" "HC-SR04"
-			(at 93.98 119.38 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 97.79 128.27 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 97.79 128.27 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 97.79 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Library" "/Users/newuser/projects/rr_neruel/resources/schematic/components/hc-sr04.mod"
-			(at 97.79 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Name" "SW"
-			(at 97.79 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "SW"
-			(at 97.79 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "V"
-			(at 97.79 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=ctrl+ 2=ctrl- 3=no+ 4=no-"
-			(at 97.79 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "9e5d0c96-74ed-4693-92f6-05a731192b9d")
-		)
-		(pin "1"
-			(uuid "db741000-2df3-4cc2-bf76-0caa44e34261")
-		)
-		(pin "4"
-			(uuid "e53a16a0-a06e-42ef-92e9-8dcb1233830d")
-		)
-		(pin "2"
-			(uuid "4f5ae649-a9b7-49e9-971c-6d8147beb178")
-		)
-		(instances
-			(project "ryderrobot"
-				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "U2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 166.37 101.6 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "281cedeb-5ab6-4c62-8e25-de39ca94969b")
-		(property "Reference" "R6"
-			(at 168.91 100.3299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "${SIM.PARAMS}"
-			(at 168.91 102.8699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 164.592 101.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 166.37 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 166.37 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "R"
-			(at 166.37 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "="
-			(at 166.37 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" "r=1000"
-			(at 166.37 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 166.37 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "cebb3c66-a0ba-46ab-b096-1e646dfddf0e")
-		)
-		(pin "2"
-			(uuid "481f0b0a-ad52-42f8-87c0-7b8215d1a81a")
-		)
-		(instances
-			(project "ryderrobot"
-				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "R6")
-					(unit 1)
-				)
-			)
 		)
+		(uuid "e7ee0802-668c-476d-8703-318539a33567")
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 21.59 152.4 0)
+		(at 71.12 111.76 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "40c171e4-688a-4b2a-b1f2-3881fc36afc7")
-		(property "Reference" "#PWR01"
-			(at 21.59 158.75 0)
+		(uuid "124787a2-4db3-45cb-a632-c7c43d238218")
+		(property "Reference" "#PWR02"
+			(at 71.12 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2095,7 +645,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 21.59 157.48 0)
+			(at 71.12 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2103,7 +653,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 21.59 152.4 0)
+			(at 71.12 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2112,7 +662,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 21.59 152.4 0)
+			(at 71.12 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2121,7 +671,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 21.59 152.4 0)
+			(at 71.12 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2130,37 +680,38 @@
 			)
 		)
 		(pin "1"
-			(uuid "9cfa31ba-cdc8-4526-8405-356bdd870cb7")
+			(uuid "c24e4602-ca01-4cc1-9d10-d2e1622341f2")
 		)
 		(instances
 			(project "ryderrobot"
 				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "#PWR01")
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:LED")
-		(at 55.88 93.98 0)
+		(lib_id "power:+5V")
+		(at 26.67 97.79 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "575ecb38-9a02-4fef-bf76-b64956e4eb2d")
-		(property "Reference" "D1"
-			(at 54.2925 87.63 0)
+		(uuid "34dce7b2-faeb-4b84-87bb-bccc1c9f3612")
+		(property "Reference" "#PWR03"
+			(at 26.67 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Value" "LED"
-			(at 54.2925 90.17 0)
+		(property "Value" "+11.1V"
+			(at 26.67 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2168,127 +719,16 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 93.98 0)
+			(at 26.67 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 55.88 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode"
-			(at 55.88 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Library" "/Users/newuser/projects/rr_neruel/resources/schematic/components/led.mod"
-			(at 55.88 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Name" "LED"
-			(at 55.88 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "D"
-			(at 55.88 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=A 2=K"
-			(at 55.88 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "cd6ec598-6f06-4056-8b29-966ce2831f89")
-		)
-		(pin "1"
-			(uuid "38ac8caf-579b-461d-bcb3-5db45f4c25c4")
-		)
-		(instances
-			(project "ryderrobot"
-				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "D1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "hc-sr04:HC-SR04")
-		(at 52.07 128.27 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5d3257c3-5c11-4154-9b41-799e457a673a")
-		(property "Reference" "U1"
-			(at 48.26 116.84 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Value" "HC-SR04"
-			(at 48.26 119.38 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 52.07 128.27 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
 			)
 		)
 		(property "Datasheet" ""
-			(at 52.07 128.27 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 52.07 128.27 0)
+			(at 26.67 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2296,171 +736,22 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Library" "/Users/newuser/projects/rr_neruel/resources/schematic/components/hc-sr04.mod"
-			(at 52.07 128.27 0)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 26.67 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
-		)
-		(property "Sim.Name" "SW"
-			(at 52.07 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "SW"
-			(at 52.07 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "V"
-			(at 52.07 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=ctrl+ 2=ctrl- 3=no+ 4=no-"
-			(at 52.07 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "adb1a129-88d1-479a-93fc-5350c300fc86")
-		)
-		(pin "3"
-			(uuid "740eff0d-c8fe-4508-bdcf-0cd47c6a1a2e")
 		)
 		(pin "1"
-			(uuid "83be609d-6e21-4011-bda0-0f550fadd2ca")
-		)
-		(pin "4"
-			(uuid "3f2692d4-75d2-4234-8e7d-f7779cd81ae2")
+			(uuid "b6b5ef6b-b745-4c08-8b89-ee9587bda30a")
 		)
 		(instances
 			(project "ryderrobot"
 				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "U1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED")
-		(at 102.87 93.98 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "71b03c84-1e10-42ab-a41c-2a6df293f560")
-		(property "Reference" "D2"
-			(at 101.2825 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "LED"
-			(at 101.2825 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 102.87 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 102.87 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Light emitting diode"
-			(at 102.87 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Library" "/Users/newuser/projects/rr_neruel/resources/schematic/components/led.mod"
-			(at 102.87 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Name" "LED"
-			(at 102.87 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "D"
-			(at 102.87 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=A 2=K"
-			(at 102.87 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "53f425d7-81ef-4a8c-90ea-2591716f4305")
-		)
-		(pin "1"
-			(uuid "07d29e5c-015f-41c2-808b-2fb770046fab")
-		)
-		(instances
-			(project "ryderrobot"
-				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "D2")
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -2468,432 +759,16 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 115.57 88.9 0)
+		(at 71.12 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "794eba10-30dc-4612-b9a0-190c45f4d3db")
-		(property "Reference" "R4"
-			(at 118.11 87.6299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "${SIM.PARAMS}"
-			(at 118.11 90.1699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 113.792 88.9 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 115.57 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 115.57 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "R"
-			(at 115.57 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "="
-			(at 115.57 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" "r=2000"
-			(at 115.57 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 115.57 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "273be2d7-a1b7-42cf-89b7-9256317ee4d8")
-		)
-		(pin "2"
-			(uuid "0d19a504-733f-4d14-bea0-664f9b5aacbc")
-		)
-		(instances
-			(project "ryderrobot"
-				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Simulation_SPICE:VDC")
-		(at 21.59 116.84 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "79c4aed3-b104-4231-9bd3-b69372caf565")
-		(property "Reference" "trig1"
-			(at 25.4 115.4401 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "3.3"
-			(at 25.4 117.9801 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 21.59 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
-			(at 21.59 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Voltage source, DC"
-			(at 21.59 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 21.59 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "DC"
-			(at 21.59 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "V"
-			(at 21.59 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "a574fc48-1aa9-4c9a-882f-ecde7b2cef23")
-		)
-		(pin "1"
-			(uuid "a5a0b1c3-f2dd-4b2c-bd98-9d2fbe984fa0")
-		)
-		(instances
-			(project "ryderrobot"
-				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "trig1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 115.57 100.33 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "90851d90-1daf-4bd1-b7de-2dc792df89e7")
-		(property "Reference" "R3"
-			(at 118.11 99.0599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "${SIM.PARAMS}"
-			(at 118.11 101.5999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 113.792 100.33 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 115.57 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 115.57 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "R"
-			(at 115.57 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "="
-			(at 115.57 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" "r=1000"
-			(at 115.57 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 115.57 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f19a4166-9656-4af4-bea9-56eb4709ce7b")
-		)
-		(pin "2"
-			(uuid "8e3fd144-d6ce-430a-b87c-8f783f8c97b4")
-		)
-		(instances
-			(project "ryderrobot"
-				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "R3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 166.37 90.17 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "97310257-fd06-40e9-a1b7-d8a9b6f53f37")
-		(property "Reference" "R5"
-			(at 168.91 88.8999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "${SIM.PARAMS}"
-			(at 168.91 91.4399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 164.592 90.17 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 166.37 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 166.37 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "R"
-			(at 166.37 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "="
-			(at 166.37 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" "r=2000"
-			(at 166.37 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 166.37 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f6801caf-084a-4faf-945d-dfa4b6c49fe1")
-		)
-		(pin "2"
-			(uuid "75c1c004-302f-45e0-9362-467ebc11eeae")
-		)
-		(instances
-			(project "ryderrobot"
-				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 72.39 100.33 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c210560c-681d-4bbe-9d35-f6683536d9ce")
+		(uuid "39ce7be5-e778-41f8-a03e-501beba6b028")
 		(property "Reference" "R1"
-			(at 74.93 99.0599 0)
+			(at 73.66 69.8499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2901,8 +776,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "${SIM.PARAMS}"
-			(at 74.93 101.5999 0)
+		(property "Value" "10k"
+			(at 73.66 72.3899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2911,7 +786,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 70.612 100.33 90)
+			(at 69.342 71.12 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2920,7 +795,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 72.39 100.33 0)
+			(at 71.12 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2929,7 +804,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 72.39 100.33 0)
+			(at 71.12 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2938,25 +813,7 @@
 			)
 		)
 		(property "Sim.Device" "R"
-			(at 72.39 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "="
-			(at 72.39 100.33 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Params" "r=1000"
-			(at 72.39 100.33 0)
+			(at 71.12 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2965,7 +822,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=+ 2=-"
-			(at 72.39 100.33 0)
+			(at 71.12 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2974,10 +831,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "43938ed6-cedb-42cc-afea-1154b9c696cd")
+			(uuid "9ac03054-4f3f-4d3b-a055-8d527b956677")
 		)
 		(pin "2"
-			(uuid "03fa0d33-a1a9-47f4-8765-985b91f0b9a4")
+			(uuid "9bed88a2-0617-427a-935a-c517c052ff33")
 		)
 		(instances
 			(project "ryderrobot"
@@ -2989,49 +846,35 @@
 		)
 	)
 	(symbol
-		(lib_id "hc-sr04:HC-SR04")
-		(at 153.67 128.27 0)
+		(lib_id "Device:R")
+		(at 71.12 85.09 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "d655cad8-762e-4691-b8eb-f0eb26423b1d")
-		(property "Reference" "U3"
-			(at 149.86 116.84 0)
+		(uuid "3e0b9319-d225-491f-8cda-9ac04a9f74ac")
+		(property "Reference" "R2"
+			(at 73.66 83.8199 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "HC-SR04"
-			(at 149.86 119.38 0)
+		(property "Value" "10k"
+			(at 73.66 86.3599 0)
 			(effects
 				(font
-					(size 1.524 1.524)
+					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 153.67 128.27 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 153.67 128.27 0)
-			(effects
-				(font
-					(size 1.524 1.524)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 153.67 128.27 0)
+			(at 69.342 85.09 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3039,8 +882,8 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Library" "/Users/newuser/projects/rr_neruel/resources/schematic/components/hc-sr04.mod"
-			(at 153.67 128.27 0)
+		(property "Datasheet" "~"
+			(at 71.12 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3048,58 +891,255 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Name" "SW"
-			(at 153.67 128.27 0)
+		(property "Description" "Resistor"
+			(at 71.12 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
 			)
-		)
-		(property "Sim.Device" "SW"
-			(at 153.67 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Type" "V"
-			(at 153.67 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=ctrl+ 2=ctrl- 3=no+ 4=no-"
-			(at 153.67 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "78dde4b9-e28f-4edb-a4e9-ce32a80bc475")
-		)
-		(pin "1"
-			(uuid "823652b9-4064-4e2c-b46d-1fe665725a35")
-		)
-		(pin "4"
-			(uuid "9d8278f4-66ab-4293-8e80-d6ec69bd6242")
 		)
 		(pin "2"
-			(uuid "bc7ad98b-ac40-41c5-b71d-920b91cff30a")
+			(uuid "b3699f71-215a-4cb8-94dc-008eb2807b7b")
+		)
+		(pin "1"
+			(uuid "f0ffaabe-a6c2-4801-9dc7-9903b07027de")
 		)
 		(instances
 			(project "ryderrobot"
 				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
-					(reference "U3")
+					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 71.12 62.23 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "67a978b0-ff04-4095-8d58-4e5f2fd10529")
+		(property "Reference" "#PWR01"
+			(at 71.12 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+11.1V"
+			(at 71.12 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 71.12 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 71.12 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 71.12 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f5472dce-84d7-4f9f-ab01-c7901e8d1a11")
+		)
+		(instances
+			(project "ryderrobot"
+				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
+					(reference "#PWR01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Simulation_SPICE:VDC")
+		(at 26.67 102.87 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bd7ccd7b-aaa2-485a-a536-74994a6c8b45")
+		(property "Reference" "V1"
+			(at 30.48 101.4701 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "11.1"
+			(at 30.48 104.0101 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 26.67 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://ngspice.sourceforge.io/docs/ngspice-html-manual/manual.xhtml#sec_Independent_Sources_for"
+			(at 26.67 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Voltage source, DC"
+			(at 26.67 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 26.67 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Type" "DC"
+			(at 26.67 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "V"
+			(at 26.67 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "bb594df1-6e62-4133-b50c-082a01d076f3")
+		)
+		(pin "1"
+			(uuid "84c90139-e573-4f93-950d-6db78ab56ec6")
+		)
+		(instances
+			(project "ryderrobot"
+				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
+					(reference "V1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 26.67 107.95 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c8973dab-6bb8-40ba-a354-22083a8baa88")
+		(property "Reference" "#PWR04"
+			(at 26.67 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 26.67 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 26.67 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 26.67 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 26.67 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2c1e073d-ce30-491b-bcf6-953da105d5da")
+		)
+		(instances
+			(project "ryderrobot"
+				(path "/4435ea64-70dc-4af2-aa93-7b514da00384"
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
