@@ -1,7 +1,10 @@
 { "op" : 1, "actions": [ { "oid": 1, "name": "moveforward", "value": 1000 } ] }
 
+
+{ "op" : 1, "actions": [ { "oid": 1, "name": "moveforward", "value": 500 } ] }
+
 { "op" : 1, "actions": [ { "oid": 2, "name": "stop", "value": 500 } ] }
 
-{ "op" : 1, "actions": [ { "oid": 3, "name": "left", "value": 500 } ] }
+{ "op" : 1, "actions": [ { "oid": 3, "name": "left", "value": 1500 } ] }
 
 { "op" : 1, "actions": [ { "oid": 4, "name": "right", "value": 500 } ] }

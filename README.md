@@ -21,6 +21,7 @@ cmake --build build -t test
 cd build
 cpack --config CPackConfig.cmake
 cpack --config CPackSourceConfig.cmake
+lintian rr-neruel_1.0.0-1_arm64.deb
 
 
 ```
