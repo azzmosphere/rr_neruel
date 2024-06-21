@@ -39,3 +39,4 @@ resources/schematic/ryderrobot/ryderrobot-backups/**
 **.lck
 **.swp
 **.DS_Store
+**fp-info-cache
