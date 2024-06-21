@@ -1,0 +1,57 @@
+# Configurtation for land mode protocol
+#
+# Duration of of '0' means continue till next command is recieved.
+#
+# Each event is defined is defined by attributes,  the attributes are as follows:
+#   op:   OP_ACTIONS = perform some sort of out such as move forward. 
+#   oid:    unique identifier for the event
+#   class:  Class that handles the action.
+#   name:   Human readable name that gets printed to log.
+#   value:  For PWM, or voltage,  how much to provide.
+#   duration: How long in seconds to perform the event, for example 10 will be 10 seconds.  Note the special value '0' means perform action until next command.
+
+events:
+  # Move forward slowly
+  - 
+    op:  OP_ACTIONS
+    oid: 1
+    class: MOVE_FORWARD
+    name: MoveForwardSlow
+    value: 1000
+    duration: 0
+
+  -
+    oid: 2
+    class: FORWARD
+    name: MoveForwardSlow
+    value: 1250    
+
+  -
+    oid: 3
+    class: FORWARD
+    name: MoveForward1
+    value: 1500
+
+  -
+    oid: 4
+    class: FORWARD
+    name: MoveForward2
+    value: 1750
+
+  -
+    oid: 5
+    class: FORWARD
+    name: MoveForwardFast
+    value: 2000
+
+  -
+    oid: 6
+    class: STOP
+    name: Stop
+    value: 0
+
+  -
+    oid: 7
+    class: LEFT
+    name: move left 90 degrees
+    value: 1500
