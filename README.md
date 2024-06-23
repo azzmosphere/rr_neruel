@@ -2,6 +2,11 @@
 
 NN designed to operate on robot that use Raspberry Pi 4.
 
+## Running
+
+```
+sudo nohup /home/aaron/bin/rr-environment
+```
 
 ## Development
 
