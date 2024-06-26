@@ -5,7 +5,7 @@ NN designed to operate on robot that use Raspberry Pi 4.
 ## Running
 
 ```
-sudo nohup /home/aaron/bin/rr-environment
+sudo nohup rr-environment 2>&1 /var/log/rr-neruel.log &
 ```
 
 ## Development
@@ -88,6 +88,13 @@ refernce from [Simple Guide to the Raspberry Pi GPIO Header](https://www.raspber
 ```
 gh pr create -a @me -f 
 ```
+
+
+# Direcories
+
+| Direcory                    | Description                      |
++:----------------------------|:---------------------------------|
+| /usr/share/rr-nuruel/bin    | location of executable programs  |
 
 ## Testing
 

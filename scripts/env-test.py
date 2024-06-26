@@ -4,6 +4,12 @@ import time
 tn = Telnet('192.168.1.14', 8080)
 
 
+# Requires a value of 300,  to get started which is weird since the motors really should operate between
+# 3 to 6 volt,  could have something to do with current??????
+# 
+# 400 gets things moving,  according 
+
+
 # MOVE FORWARD - Voltage high at  4@350  @380 5@400 
 #
 # Motor Driver at rest:
@@ -28,9 +34,9 @@ tn = Telnet('192.168.1.14', 8080)
 # tn.write(b'{ "op" : 1, "actions": [ { "oid": 1, "name": "moveforward", "value": 10 } ] }')
 
 # 12 is 6 volt
-tn.write(b'{ "op" : 1, "actions": [ { "oid": 1, "name": "moveforward", "value": 12 } ] }')
+tn.write(b'{ "op" : 1, "actions": [ { "oid": 1, "name": "moveforward", "value": 350 } ] }')
 
-time.sleep(10)
+time.sleep(30)
 
 tn = Telnet('192.168.1.14', 8080)
 tn.write(b'{ "op" : 1, "actions": [ { "oid": 2, "name": "stop", "value": 100 } ] }')

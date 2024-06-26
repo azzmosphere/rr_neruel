@@ -1,3 +1,20 @@
+#
+#
+# Configurations
+
+# internal configuration
+operations:
+  - OP_ACTIONS
+    op: 1
+    actions:
+      - action:
+        class: L298Motor
+        constructor: {""}
+        args: {""}
+
+
+
+
 # Configurtation for land mode protocol
 #
 # Duration of of '0' means continue till next command is recieved.
@@ -10,40 +27,42 @@
 #   value:  For PWM, or voltage,  how much to provide.
 #   duration: How long in seconds to perform the event, for example 10 will be 10 seconds.  Note the special value '0' means perform action until next command.
 
-
 events:
   # Move forward slowly
   - 
     op:  OP_ACTIONS
     oid: 1
-    class: MOVE_FORWARD
-    name: MoveForwardSlow
-    value: 1000
+    name: MoveForward1
+    value: 300
     duration: 0
 
   -
+    op:  OP_ACTIONS
     oid: 2
-    class: FORWARD
-    name: MoveForwardSlow
-    value: 1250    
-
-  -
-    oid: 3
-    class: FORWARD
-    name: MoveForward1
-    value: 1500
-
-  -
-    oid: 4
-    class: FORWARD
     name: MoveForward2
-    value: 1750
+    value: 325
+    duration: 0 
 
   -
+    op:  OP_ACTIONS
+    oid: 3
+    name: MoveForward3
+    value: 350
+    duration: 0 
+
+  -
+    op:  OP_ACTIONS
+    oid: 4
+    name: MoveForward4
+    value: 375
+    duration: 0 
+
+  -
+    op:  OP_ACTIONS
     oid: 5
-    class: FORWARD
-    name: MoveForwardFast
-    value: 2000
+    name: MoveForward5
+    value: 400
+    duration: 0 
 
   -
     oid: 6
