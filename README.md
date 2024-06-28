@@ -94,7 +94,7 @@ gh pr create -a @me -f
 
 | Direcory                    | Description                      |
 +:----------------------------|:---------------------------------|
-| /usr/share/rr-nuruel/bin    | location of executable programs  |
+| /opt/rrobot/bin             | location of executable programs  |
 
 ## Testing
 
