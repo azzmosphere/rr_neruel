@@ -5,8 +5,6 @@
 #include "RrController.hpp"
 
 
-#define DELAY_MS 100
-
 RrController::RrController() {}
 
 // create a delay configurable before actioning the requests.
@@ -29,6 +27,5 @@ Event RrController::executeRequest(Event event)
         }
         
     }
-    delayMicroseconds(DELAY_MS);
     return event;
 }

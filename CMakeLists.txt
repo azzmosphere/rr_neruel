@@ -75,6 +75,8 @@ include_directories( ${INCLUDE_DIR} )
  # Common files, for all programs
 file(GLOB SOURCES src/main/common/*.cpp)
 
+# Inja
+
 # rr-agent code.
 add_subdirectory(src/main/rr-agent)
 add_subdirectory(src/main/rr-environment)

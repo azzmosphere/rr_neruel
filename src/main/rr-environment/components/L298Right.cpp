@@ -12,7 +12,7 @@ MoveRighAction::MoveRighAction(L298Motor* l298Motor)
 void MoveRighAction::executeAction(float value)
 {
     Logger::info("executing left forward");
-    _l298Motor->driveWheels(HIGH, LOW, LOW, HIGH, value, value);
+    _l298Motor->driveWheels(LOW, HIGH, HIGH, LOW, value, value);
 }
 
 string MoveRighAction::name() 

@@ -31,6 +31,8 @@ void L298Motor::setup()
     pinMode(IN3, OUTPUT);
     pinMode(IN4, OUTPUT);
     pinMode(ENB, PWM_OUTPUT);
+
+    this->teardown();
 }
 
 void L298Motor::teardown()

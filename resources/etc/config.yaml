@@ -1,0 +1,80 @@
+# Configuration for ryder robot.
+
+# Environment sets up the drivers that communicate with the real work,
+environment:
+  class:
+    output:
+      # How the class is refernecd from the agent/policy
+      - name: L298Motor
+
+        # object driver that performs the action.
+        driver: L298Motor
+
+        # defines arguments required to initilize class
+        construct: {"IN1": "GPIO_PIN23", "IN2" : "GPIO_PIN24", "ENA": "PWM0", "IN3": "GPIO_PIN27", "IN4" :"GPIO_PIN17", "ENB": PWM1"}
+
+        # arguments sent back to class
+        args: {"value": 300, "IN1": "{{ IN1 }}", "IN2": "{{ IN2 }}", "IN3": "{{ IN3 }}", "ENA": "{{ ENA }}", "ENB": "{{ ENB }}"  }
+  
+    # input arguments
+    input:
+      - name: HcSr04_1
+        driver: HcSr04
+        construct: {"TRIG": "XX", "ECHO": "XX"}
+        args: {}
+        # True if return value is between 0 to 10s
+        result: 0-10
+
+      - name: HcSr04_2
+        driver: HcSr04
+        construct: {"TRIG": "XX", "ECHO": "XX"}
+        args: {}
+        # True if return value is between 0 to 10s
+        result: 0-10
+
+      - name: HcSr04_3
+        driver: HcSr04
+        construct: {"TRIG": "XX", "ECHO": "XX"}
+        args: {}
+        # True if return value is between 0 to 10s
+        result: 0-10
+
+
+network:
+  # how many times per second trigger is performed.
+  pulse: 0.25
+
+  # Network ID
+  success:  0.0004
+  inital_weight: 0.5
+  learning_rate: 0.3
+  momentum: 0.9
+
+  input:
+    - node: HcSr04_1
+      class: HcSr04_1
+
+    - node: HcSr04_2
+      class: HcSr04_2
+
+    - node: HcSr04_3
+      class: HcSr04_3
+
+  output:
+    - node: ENA
+      class: L298Motor
+
+    - node: ENB
+      class: L298Motor
+
+    - node: IN1
+      class: L298Motor
+
+    - node: IN2
+      class: L298Motor
+
+    - node: IN3
+      class: L298Motor
+
+    - node: IN4
+      class: L298Motor

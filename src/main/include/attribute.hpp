@@ -32,6 +32,10 @@ class Attribute {
             _value = value;
         }
 
+        void setDelta(float delta) {
+            _delta = delta;
+        }
+
         int8_t getOid()
         {
             return _oid;
@@ -46,9 +50,15 @@ class Attribute {
         {
             return _value;
         }
+
+        float getDelta() {
+            return _delta;
+        }
+
     private:
        int8_t _oid;    // mapping variable for the observation.
        string _name;   // human readable name of the observation.
        float  _value;  // value.
+       float  _delta;  // how long to run the event relating to the attribute.
 };
 #endif
